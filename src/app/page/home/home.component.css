@@ -1,0 +1,24 @@
+#home {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: var(--navbarHeight);
+  gap: 24px;
+}
+
+#home .book-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 240px;
+  border-radius: 4px; /* Add rounded corners to the card */
+}
+
+#home .book-card:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+  cursor: pointer;
+}
+
+#home .book-card img {
+  object-fit: contain; /* Crop or scale the image as needed to fill the container */
+  width: 100%;
+}

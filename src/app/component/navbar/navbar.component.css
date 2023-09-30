@@ -1,0 +1,33 @@
+nav {
+  display: flex;
+  align-items: center;
+  background-color: #333; /* Background color for the navbar */
+  padding: 10px 0; /* Add some padding to the top and bottom */
+  position: fixed;
+  width: 100%;
+  height: var(--navbarHeight);
+}
+
+nav > div > button {
+  background-color: #555; /* Button background color */
+  color: #fff; /* Text color */
+  padding: 8px; /* Add padding to the button */
+  border: none; /* Remove the button border */
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  cursor: pointer; /* Change cursor to pointer on hover */
+  text-decoration: none; /* Remove underline style for buttons */
+}
+
+nav > div > input {
+  border: none;
+  padding: 8px;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  flex-grow: 1;
+}
+
+nav > div {
+  display: flex;
+  width: 100%;
+}

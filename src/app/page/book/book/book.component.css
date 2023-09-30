@@ -1,0 +1,38 @@
+#book {
+  display: flex;
+  justify-content: center;
+  padding: 48px;
+  padding-top: calc(2 * var(--navbarHeight));
+  gap: 48px;
+}
+
+#book > div {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+
+#book img {
+  object-fit: contain;
+  max-height: 50vh;
+  width: 60%;
+}
+
+#book .book-title {
+  font-size: 3rem;
+  font-weight: bolder;
+}
+
+#book .book-author {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+#book .book-genre {
+  border: 1px solid black;
+  border-radius: 24px;
+  width: fit-content;
+  padding: 4px 8px;
+  background: blue;
+  color: white;
+}
