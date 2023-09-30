@@ -4,4 +4,7 @@ export default interface Book {
   author: string;
   title: string;
   isAvailable: boolean;
+  image: string;
+  genre: string;
+  description: string;
 }

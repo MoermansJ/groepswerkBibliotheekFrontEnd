@@ -1,0 +1,9 @@
+<nav>
+	<button routerLink="/" (click)="handleHomeClick()">Home</button>
+	<button routerLink="/login">Login</button>
+
+	<div>
+		<input type="text" placeholder="Search books, authors..." [(ngModel)]="search" (keyup.enter)="onEnter()" />
+		<button (click)="handleSearch()">Search</button>
+	</div>
+</nav>
