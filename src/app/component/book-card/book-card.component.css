@@ -4,6 +4,7 @@
   align-items: center;
   width: 240px;
   border-radius: 4px;
+  padding: 1rem 0;
 }
 
 .book-card:hover {
@@ -12,6 +13,11 @@
 }
 
 .book-card img {
+  margin: auto;
   object-fit: contain;
-  width: 100%;
+  max-height: 200px;
+}
+
+.book-card-details {
+  text-align: center;
 }
