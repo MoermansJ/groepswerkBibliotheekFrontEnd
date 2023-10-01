@@ -17,6 +17,7 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
   //properties
   public search: string = '';
+  public genres: string[] = [];
 
   //constructor
   constructor(
@@ -28,6 +29,20 @@ export class NavbarComponent implements OnInit {
   //getters & setters
 
   //custom methods
+  ngOnInit(): void {
+    this.handleSearch();
+    this.getAllGenres();
+  }
+
+  onEnter() {
+    this.router.navigate(['']);
+    this.handleSearch();
+  }
+
+  public handleHomeClick(): void {
+    this.getAllBooks();
+  }
+
   public handleSearch(): void {
     let url = `http://localhost:8080/book/getBooksByTitleOrAuthor?search=${this.search}`;
 
@@ -48,19 +63,6 @@ export class NavbarComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    this.handleSearch();
-  }
-
-  onEnter() {
-    this.router.navigate(['']);
-    this.handleSearch();
-  }
-
-  public handleHomeClick(): void {
-    this.getAllBooks();
-  }
-
   private getAllBooks(): void {
     const url = 'http://localhost:8080/book/getAllBooks';
 
@@ -68,6 +70,30 @@ export class NavbarComponent implements OnInit {
       next: (response: Book[]) => {
         this.dataService.setSearchResults(response);
         this.dataService.setQueryDescription('All books');
+      },
+      error: (error: any) => console.error(error),
+    });
+  }
+
+  private getAllGenres(): void {
+    const url = 'http://localhost:8080/book/getAllGenres';
+
+    this.apiService.get(url).subscribe({
+      next: (response: string[]) => {
+        this.genres = response;
+      },
+      error: (error: any) => console.error(error),
+    });
+  }
+
+  public findBooksByGenre(event: any): void {
+    const genre = event.target.value;
+    const url = `http://localhost:8080/book/getBooksByGenre?genre=${genre}`;
+
+    this.apiService.get(url).subscribe({
+      next: (response: Book[]) => {
+        this.dataService.setSearchResults(response);
+        this.dataService.setQueryDescription('Books in genre ' + genre);
       },
       error: (error: any) => console.error(error),
     });
