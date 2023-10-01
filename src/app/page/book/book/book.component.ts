@@ -30,6 +30,7 @@ export class BookComponent {
 
   //custom methods
   ngOnInit(): void {
+    //subscribing to dataService
     this.dataServiceSubscription = this.dataService
       .getClickedBook()
       .subscribe((value) => {
@@ -58,7 +59,12 @@ export class BookComponent {
     const url = `http://localhost:8080/book/getBooksByGenre?genre=${this.bookGenre}`;
 
     this.apiService.get(url).subscribe({
-      next: (response: Book[]) => this.dataService.setSearchResults(response),
+      next: (response: Book[]) => {
+        this.dataService.setSearchResults(response);
+        this.dataService.setQueryDescription(
+          'Books in genre ' + this.bookGenre
+        );
+      },
       error: (error: any) => console.error(error),
     });
 

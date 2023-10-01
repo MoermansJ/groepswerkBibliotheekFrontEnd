@@ -9,6 +9,7 @@ import Book from '../interface/Book';
 export class DataService {
   //properties
   private searchResults: Subject<any[]> = new Subject<any[]>();
+  private queryDescription: Subject<string> = new Subject<string>();
   private clickedBook: Subject<Book> = new Subject<Book>();
 
   //constructor
@@ -29,6 +30,14 @@ export class DataService {
 
   getClickedBook(): Observable<Book> {
     return this.clickedBook.asObservable();
+  }
+
+  setQueryDescription(description: string) {
+    this.queryDescription.next(description);
+  }
+
+  getQueryDescription(): Observable<string> {
+    return this.queryDescription.asObservable();
   }
 
   //custom methods

@@ -1,12 +1,7 @@
 <div id="home">
-	<!-- for each element of the array -->
-	<div *ngFor="let book of allBooks" class="book-card" (click)="handleCardClick(book)" routerLink="book">
-		<figure class="book-card-image">
-			<img [src]="book.image" alt="{{book.title}} Cover" />
-		</figure>
-		<div class="book-card-details">
-			<h2 class="book-title">{{book.title}}</h2>
-			<p class="book-author">{{book.author}}</p>
-		</div>
+	<div class="title">{{queryDescription}}</div>
+	<div class="book-card-container">
+		<app-book-card *ngFor="let book of allBooks" [book]="book" (click)="handleCardClick(book)" routerLink="book">
+		</app-book-card>
 	</div>
 </div>
