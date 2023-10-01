@@ -33,11 +33,17 @@ export class NavbarComponent implements OnInit {
 
     //if empty search
     if (!this.search.trim()) {
-      url = 'http://localhost:8080/book/getAllBooks';
+      this.getAllBooks();
+      return;
     }
 
     this.apiService.get(url).subscribe({
-      next: (response: Book[]) => this.dataService.setSearchResults(response),
+      next: (response: Book[]) => {
+        this.dataService.setSearchResults(response);
+        this.dataService.setQueryDescription(
+          "'" + this.search + "' in authors and titles"
+        );
+      },
       error: (error: any) => console.error(error),
     });
   }
@@ -59,7 +65,10 @@ export class NavbarComponent implements OnInit {
     const url = 'http://localhost:8080/book/getAllBooks';
 
     this.apiService.get(url).subscribe({
-      next: (response: Book[]) => this.dataService.setSearchResults(response),
+      next: (response: Book[]) => {
+        this.dataService.setSearchResults(response);
+        this.dataService.setQueryDescription('All books');
+      },
       error: (error: any) => console.error(error),
     });
   }

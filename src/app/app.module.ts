@@ -9,6 +9,7 @@ import { NavbarComponent } from './component/navbar/navbar.component';
 import { LoginComponent } from './page/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { BookComponent } from './page/book/book/book.component';
+import { BookCardComponent } from './component/book-card/book-card.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { BookComponent } from './page/book/book/book.component';
     HomeComponent,
     NavbarComponent,
     BookComponent,
+    BookCardComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],

@@ -12,6 +12,7 @@ import { DataService } from 'src/app/service/data.service';
 export class HomeComponent implements OnInit, OnDestroy {
   //properties
   public allBooks: Book[] = [];
+  public queryDescription: string = '';
   private dataServiceSubscription: Subscription = new Subscription();
 
   //constructor
@@ -24,10 +25,17 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   //custom methods
   ngOnInit(): void {
+    //subscribing to dataService
     this.dataServiceSubscription = this.dataService
       .getSearchResults()
       .subscribe((value) => {
-        this.allBooks = value; // Update the component's property
+        this.allBooks = value;
+      });
+
+    this.dataServiceSubscription = this.dataService
+      .getQueryDescription()
+      .subscribe((value) => {
+        this.queryDescription = value;
       });
   }
 
@@ -41,13 +49,4 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.dataService.setClickedBook(book);
     }, 1);
   }
-
-  // private getAllBooks(): void {
-  //   const url = 'http://localhost:8080/book/getAllBooks';
-
-  //   this.apiService.get(url).subscribe({
-  //     next: (response: Book[]) => (this.allBooks = response),
-  //     error: (error: any) => console.error(error),
-  //   });
-  // }
 }
