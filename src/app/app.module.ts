@@ -10,6 +10,7 @@ import { LoginComponent } from './page/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { BookComponent } from './page/book/book/book.component';
 import { BookCardComponent } from './component/book-card/book-card.component';
+import { RegisterComponent } from './page/register/register.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { BookCardComponent } from './component/book-card/book-card.component';
     NavbarComponent,
     BookComponent,
     BookCardComponent,
+    RegisterComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
