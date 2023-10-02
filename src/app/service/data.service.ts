@@ -8,9 +8,9 @@ import Book from '../interface/Book';
 })
 export class DataService {
   //properties
-  private searchResults: Subject<any[]> = new Subject<any[]>();
-  private queryDescription: Subject<string> = new Subject<string>();
-  private clickedBook: Subject<Book> = new Subject<Book>();
+  private searchResults = new Subject<any[]>();
+  private queryDescription = new Subject<string>();
+  private clickedBook = new Subject<Book>();
 
   //constructor
   constructor(private apiService: ApiService) {}
