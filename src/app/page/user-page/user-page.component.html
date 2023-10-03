@@ -1,0 +1,8 @@
+<div id="user-page">
+  <p>dit is de user pagina</p>
+  <button (click)="getBorrowedBooks()">View borrowed books</button>
+
+  <div *ngFor="let bb of borrowedBooks">
+    <p>dit is een borrowed book</p>
+  </div>
+</div>
