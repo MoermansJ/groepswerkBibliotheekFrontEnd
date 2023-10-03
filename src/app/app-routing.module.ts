@@ -4,6 +4,9 @@ import { HomeComponent } from './page/home/home.component';
 import { LoginComponent } from './page/login/login.component';
 import { BookComponent } from './page/book/book/book.component';
 import { RegisterComponent } from './page/register/register.component';
+import {AddBookPageComponent} from "./page/add-book-page/add-book-page.component";
+import {AdminPageComponent} from "./page/admin-page/admin-page.component";
+import {DeleteBookPageComponent} from "./page/delete-book-page/delete-book-page.component";
 import {UserPageComponent} from "./page/user-page/user-page.component";
 
 const routes: Routes = [
@@ -22,6 +25,18 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent,
+  },
+  {
+  path: 'add-book-page',
+    component: AddBookPageComponent,
+},
+  {
+    path: 'admin-page',
+    component: AdminPageComponent,
+  },
+  {
+    path: 'delete-book-page',
+    component: DeleteBookPageComponent,
   },
   {
     path: 'user',

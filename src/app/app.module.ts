@@ -11,8 +11,10 @@ import { FormsModule } from '@angular/forms';
 import { BookComponent } from './page/book/book/book.component';
 import { BookCardComponent } from './component/book-card/book-card.component';
 import { RegisterComponent } from './page/register/register.component';
+import { AdminPageComponent } from './page/admin-page/admin-page.component';
+import { AddBookPageComponent } from './page/add-book-page/add-book-page.component';
+import { DeleteBookPageComponent } from './page/delete-book-page/delete-book-page.component';
 import {UserPageComponent} from "./page/user-page/user-page.component";
-
 
 @NgModule({
   declarations: [
@@ -23,6 +25,9 @@ import {UserPageComponent} from "./page/user-page/user-page.component";
     BookComponent,
     BookCardComponent,
     RegisterComponent,
+    AdminPageComponent,
+    AddBookPageComponent,
+    DeleteBookPageComponent,
     UserPageComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
