@@ -9,14 +9,17 @@
 	</div>
 
 	<div class="nav-section">
+		<!-- user is logged in -->
 		<span *ngIf="currentUser.email">
 			<p>Welcome {{currentUser.email}}</p>
 			<button routerLink="/user">User-page</button>
 			<button *ngIf="currentUser.admin" routerLink="/admin-page">Admin-page</button>
+			<button (click)="handleLogOut()">Log out</button>
 		</span>
 
+		<!-- user is NOT logged in -->
 		<span *ngIf="!currentUser.email">
-			<button class="nav-button" routerLink="/login">Login</button>
+			<button class="nav-button" routerLink="/login">Log in</button>
 			<button class="nav-button" routerLink="/register">Register</button>
 		</span>
 	</div>

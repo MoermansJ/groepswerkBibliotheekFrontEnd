@@ -5,6 +5,7 @@ import { DataService } from 'src/app/service/data.service';
 import User from 'src/app/interface/User';
 import { BookService } from 'src/app/service/book.service';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -26,7 +27,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
   //constructor
   constructor(
     private bookService: BookService,
-    private dataService: DataService
+    private dataService: DataService,
+    private router: Router
   ) {}
 
   //getters & setters
@@ -57,5 +59,12 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   public handleHomeClick(): void {
     this.bookService.getAllBooks();
+  }
+
+  public handleLogOut(): void {
+    this.dataService.setCurrentUser({} as User);
+    setTimeout(() => {
+      this.router.navigate(['']);
+    }, 1);
   }
 }
