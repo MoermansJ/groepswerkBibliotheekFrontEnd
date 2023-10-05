@@ -1,28 +1,51 @@
-import { Component } from '@angular/core';
-import {ApiService} from "../../service/api.service";
-import BorrowedBook from "../../interface/BorrowedBook";
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
+import BorrowedBook from '../../interface/BorrowedBook';
+import { BorrowedBookService } from 'src/app/service/borrowedbook.service';
+import User from 'src/app/interface/User';
+import { Subscription } from 'rxjs';
+import { DataService } from 'src/app/service/data.service';
 
+@Injectable({
+  providedIn: 'root',
+})
 @Component({
   selector: 'app-user-page',
   templateUrl: './user-page.component.html',
-  styleUrls: ['./user-page.component.css']
+  styleUrls: ['./user-page.component.css'],
 })
-export class UserPageComponent {
+export class UserPageComponent implements OnInit, OnDestroy {
   //properties
-  public borrowedBooks : BorrowedBook[] = [];
+  private dataServiceSubscription: Subscription = new Subscription();
+  public borrowedBooks: BorrowedBook[] = [];
+  public currentUser: User = {} as User;
 
   //constructor
-  constructor(private apiService : ApiService) {
-  }
+  constructor(
+    private dataService: DataService,
+    private borrowedBookService: BorrowedBookService
+  ) {}
 
   //getters & setters
 
   //custom methods
-  public getBorrowedBooks() : void {
-    const url = "http://localhost:8080/borrowedbook/getBorrowedBooks"
-    this.apiService.get(url).subscribe({
-      next: (response : BorrowedBook[]) => this.borrowedBooks = response,
-      error: (error : any) => console.log(error)
-    })
+  ngOnInit() {
+    //subscribing to dataService
+    this.dataServiceSubscription = this.dataService
+      .getCurrentUser()
+      .subscribe((value: User) => {
+        this.currentUser = value;
+      });
+  }
+
+  ngOnDestroy() {
+    this.dataServiceSubscription.unsubscribe(); // Unsubscribe to prevent memory leaks
+  }
+
+  public getBorrowedBooks(): void {
+    console.log('cu ' + this.currentUser.password);
+    // this.borrowedBookService.getBorrowedBooks(
+    //   this.currentUser.borrowedBookIdList
+    // );
   }
 }

@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 import { Injectable } from '@angular/core';
-import { ApiService } from 'src/app/service/api.service';
-import Book from 'src/app/interface/Book';
 import { DataService } from 'src/app/service/data.service';
-import { Router } from '@angular/router';
+import User from 'src/app/interface/User';
+import { BookService } from 'src/app/service/book.service';
+import { Subscription } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -14,88 +14,48 @@ import { Router } from '@angular/router';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnDestroy {
   //properties
   public search: string = '';
   public genres: string[] = [];
 
+  //data service
+  private dataServiceSubscription: Subscription = new Subscription();
+  public currentUser: User = {} as User;
+
   //constructor
   constructor(
-    private apiService: ApiService,
-    private dataService: DataService,
-    private router: Router
+    private bookService: BookService,
+    private dataService: DataService
   ) {}
 
   //getters & setters
 
   //custom methods
-  ngOnInit(): void {
-    this.handleSearch();
-    this.getAllGenres();
+  ngOnInit() {
+    //subscribing to dataService
+    this.dataServiceSubscription = this.dataService
+      .getCurrentUser()
+      .subscribe((value: User) => {
+        this.currentUser = value;
+      });
+
+    this.dataServiceSubscription = this.dataService
+      .getGenres()
+      .subscribe((value: string[]) => {
+        this.genres = value;
+      });
   }
 
-  onEnter() {
-    this.router.navigate(['']);
-    this.handleSearch();
-  }
-
-  public handleHomeClick(): void {
-    this.getAllBooks();
+  ngOnDestroy(): void {
+    this.dataServiceSubscription.unsubscribe(); // Unsubscribe to prevent memory leaks
   }
 
   public handleSearch(): void {
-    let url = `http://localhost:8080/book/getBooksByTitleOrAuthor?search=${this.search}`;
-
-    //if empty search
-    if (!this.search.trim()) {
-      this.getAllBooks();
-      return;
-    }
-
-    this.apiService.get(url).subscribe({
-      next: (response: Book[]) => {
-        this.dataService.setSearchResults(response);
-        this.dataService.setQueryDescription(
-          "'" + this.search + "' in authors and titles"
-        );
-      },
-      error: (error: any) => console.error(error),
-    });
+    this.bookService.getBooksByTitleOrAuthor(this.search);
   }
 
-  private getAllBooks(): void {
-    const url = 'http://localhost:8080/book/getAllBooks';
-
-    this.apiService.get(url).subscribe({
-      next: (response: Book[]) => {
-        this.dataService.setSearchResults(response);
-        this.dataService.setQueryDescription('All books');
-      },
-      error: (error: any) => console.error(error),
-    });
-  }
-
-  private getAllGenres(): void {
-    const url = 'http://localhost:8080/book/getAllGenres';
-
-    this.apiService.get(url).subscribe({
-      next: (response: string[]) => {
-        this.genres = response;
-      },
-      error: (error: any) => console.error(error),
-    });
-  }
-
-  public findBooksByGenre(event: any): void {
-    const genre = event.target.value;
-    const url = `http://localhost:8080/book/getBooksByGenre?genre=${genre}`;
-
-    this.apiService.get(url).subscribe({
-      next: (response: Book[]) => {
-        this.dataService.setSearchResults(response);
-        this.dataService.setQueryDescription('Books in genre ' + genre);
-      },
-      error: (error: any) => console.error(error),
-    });
+  public handleHomeClick(): void {
+    this.bookService.getAllBooks();
   }
 }
