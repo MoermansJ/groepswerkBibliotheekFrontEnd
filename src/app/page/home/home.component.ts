@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import Book from 'src/app/interface/Book';
 import { ApiService } from 'src/app/service/api.service';
+import { BookService } from 'src/app/service/book.service';
 import { DataService } from 'src/app/service/data.service';
 
 @Component({
@@ -17,14 +18,16 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   //constructor
   constructor(
-    private apiService: ApiService,
-    private dataService: DataService
+    private dataService: DataService,
+    private bookService: BookService
   ) {}
 
   //getters & setters
 
   //custom methods
   ngOnInit(): void {
+    this.bookService.getAllBooks();
+
     //subscribing to dataService
     this.dataServiceSubscription = this.dataService
       .getSearchResults()

@@ -1,13 +1,14 @@
 <div id="login">
-<label for="input-email">E-mail: </label>
-	<input type="text" id="input-email" />
+	<label for="input-email">E-mail: </label>
+	<input type="text" id="input-email" [(ngModel)]="inputEmail" />
 
 	<label for="input-password">Password: </label>
-	<input type="password" id="input-password" />
+	<input type="password" id="input-password" [(ngModel)]="inputPassword" />
 
-	<button (click)="loginUser()">LOGIN USER</button>
+	<button (click)="login()">LOGIN</button>
+
+	<div *ngIf="successfullAttempt">
+		<p>welcome {{inputEmail}}, <br /> you will be redirected to the Home-page automatically...</p>
+	</div>
+
 </div>
-
-
-
-
