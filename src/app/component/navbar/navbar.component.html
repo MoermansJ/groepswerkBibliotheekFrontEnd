@@ -1,21 +1,21 @@
 <nav>
 	<div class="nav-section">
-		<button class="nav-button" routerLink="/" (click)="handleHomeClick()">Home</button>
+		<button class="nav-button home-button" routerLink="/" (click)="handleHomeClick()" >Home</button>
 		<div>
-			<label for="browse-genre">Browse by genre</label>
-			<select id="browse-genre" (change)="findBooksByGenre($event)">
+			<label for="browse-genre" *ngIf="showGenreSearch">Browse by genre</label>
+			<select id="browse-genre" *ngIf="showGenreSearch" (change)="findBooksByGenre($event)">
 				<option *ngFor="let genre of genres" [value]="genre">{{genre}}</option>
 			</select>
 		</div>
 	</div>
 
-	<div class="searchbar">
+	<div class="searchbar" *ngIf="showSearchbar">
 		<input type="text" placeholder="Search books, authors..." [(ngModel)]="search" />
 		<button (click)="handleSearch()">Search</button>
 	</div>
 
 	<div class="nav-section">
-		<button class="nav-button" routerLink="/login">Login</button>
-		<button class="nav-button" routerLink="/register">Register</button>
+		<button class="nav-button" *ngIf="showRegisterButton" routerLink="/login">Login</button>
+		<button class="nav-button" *ngIf="showLoginButton" routerLink="/register">Register</button>
 	</div>
 </nav>

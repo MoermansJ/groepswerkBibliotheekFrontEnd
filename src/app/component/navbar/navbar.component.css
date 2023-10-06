@@ -79,3 +79,9 @@ nav .searchbar {
   border-color: #007bff;
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
+.home-button {
+  position: fixed;
+  left: 20px;
+  top: 20px;
+  z-index: 999;
+}

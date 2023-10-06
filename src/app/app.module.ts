@@ -14,6 +14,7 @@ import { RegisterComponent } from './page/register/register.component';
 import { AdminPageComponent } from './page/admin-page/admin-page.component';
 import { AddBookPageComponent } from './page/add-book-page/add-book-page.component';
 import { DeleteBookPageComponent } from './page/delete-book-page/delete-book-page.component';
+import {NgOptimizedImage} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { DeleteBookPageComponent } from './page/delete-book-page/delete-book-pag
     AddBookPageComponent,
     DeleteBookPageComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, NgOptimizedImage],
   providers: [],
   bootstrap: [AppComponent],
 })
