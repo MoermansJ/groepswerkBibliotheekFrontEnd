@@ -15,22 +15,54 @@ import { AdminPageComponent } from './page/admin-page/admin-page.component';
 import { AddBookPageComponent } from './page/add-book-page/add-book-page.component';
 import { DeleteBookPageComponent } from './page/delete-book-page/delete-book-page.component';
 import { UserPageComponent } from './page/user-page/user-page.component';
+import { AllBooksPageComponent } from './page/all-books-page/all-books-page.component';
+import { CategoryPageComponent } from './page/category-page/category-page.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ConstructionPageComponent } from './page/construction-page/construction-page.component';
+import { CategoryCardBigComponent } from './component/category-card-big/category-card-big.component';
+import { CategoryCardSmallComponent } from './category-card-small/category-card-small.component';
+import { NgbModule, NgbCarousel, NgbSlide } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
+    //Angular - common
     AppComponent,
-    LoginComponent,
-    HomeComponent,
     NavbarComponent,
+
+    //Jonathan
+    HomeComponent,
+    AllBooksPageComponent,
+    CategoryPageComponent,
     BookComponent,
     BookCardComponent,
-    RegisterComponent,
+    ConstructionPageComponent,
+    CategoryCardBigComponent,
+
+    //Dmytro
     AdminPageComponent,
     AddBookPageComponent,
     DeleteBookPageComponent,
+
+    //Abderrahman
+    LoginComponent,
+
+    //Huseyin
     UserPageComponent,
+    RegisterComponent,
+    CategoryCardSmallComponent,
+
+    //TO SORT
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    NgbModule,
+    NgbCarousel,
+    NgbSlide,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

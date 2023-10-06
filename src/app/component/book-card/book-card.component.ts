@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import Book from 'src/app/interface/Book';
 
 @Component({
@@ -6,7 +6,7 @@ import Book from 'src/app/interface/Book';
   templateUrl: './book-card.component.html',
   styleUrls: ['./book-card.component.css'],
 })
-export class BookCardComponent {
+export class BookCardComponent implements OnInit {
   //properties
   @Input() book: Book;
 
@@ -18,4 +18,5 @@ export class BookCardComponent {
   //getters & setters
 
   //custom methods
+  ngOnInit() {}
 }

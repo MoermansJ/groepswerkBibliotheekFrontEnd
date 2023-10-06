@@ -1,47 +1,44 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import Book from 'src/app/interface/Book';
-import { ApiService } from 'src/app/service/api.service';
 import { BookService } from 'src/app/service/book.service';
 import { DataService } from 'src/app/service/data.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+  selector: 'app-all-books-page',
+  templateUrl: './all-books-page.component.html',
+  styleUrls: ['./all-books-page.component.css'],
 })
-export class HomeComponent implements OnInit, OnDestroy {
+export class AllBooksPageComponent implements OnInit, OnDestroy {
   //properties
-  public genres: string[] = [];
-  public newestBooks: Book[] = [];
+  public allBooks: Book[] = [];
+  public queryDescription: string = '';
   private dataServiceSubscription: Subscription = new Subscription();
 
   //constructor
   constructor(
     private dataService: DataService,
-    private bookService: BookService,
-    private apiService: ApiService
+    private bookService: BookService
   ) {}
 
   //getters & setters
 
   //custom methods
   ngOnInit(): void {
-    this.bookService.getAllGenres();
+    this.bookService.getAllBooks();
 
-    //data service subscriptions
+    //subscribing to dataService
     this.dataServiceSubscription = this.dataService
-      .getGenres()
+      .getSearchResults()
       .subscribe((value) => {
-        this.genres = value;
+        this.allBooks = value;
       });
 
-    //apiService - move this logic to bookService if it needs to be used elsewhere
-    const url = 'http://localhost:8080/book/getNewestBooks';
-    this.apiService.get(url).subscribe({
-      next: (response: Book[]) => (this.newestBooks = response),
-      error: (error: any) => console.log(error),
-    });
+    this.dataServiceSubscription = this.dataService
+      .getQueryDescription()
+      .subscribe((value) => {
+        this.queryDescription = value;
+      });
   }
 
   ngOnDestroy(): void {

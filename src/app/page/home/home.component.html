@@ -1,7 +1,37 @@
 <div id="home">
-	<div class="title">{{queryDescription}}</div>
-	<div class="book-card-container">
-		<app-book-card *ngFor="let book of allBooks" [book]="book" (click)="handleCardClick(book)" routerLink="book">
-		</app-book-card>
+	<div class="home-title-container">
+		<div class="home-title">
+			<p>Explore, read, and learn with our vast digital library collection.</p>
+			<button>Read more</button>
+		</div>
+		<div class="home-image-container">
+			<img src="assets/img/home.svg" />
+		</div>
 	</div>
-</div>
+
+
+	<div id="home-new-books">
+		<div>Latest books</div>
+		<ngb-carousel [interval]="3500" class="carousel">
+			<ng-template ngbSlide *ngFor="let book of newestBooks" (click)="handleCardClick(book)">
+				<img [src]="book.image" />
+				<p>{{book.title}}</p>
+			</ng-template>
+		</ngb-carousel>
+	</div>
+
+
+	<div id="home-category">
+		<p>All different categories : cards </p>
+	</div>
+
+
+
+	<div id="home-writers">
+		<p></p>
+	</div>
+
+	<div id="home-footer">
+		<p>home-footer</p>
+	</div>
+</div>>

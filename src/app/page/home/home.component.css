@@ -1,18 +1,82 @@
 #home {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
+  gap: 40px;
+  width: 100%;
+  height: 100%;
   padding-top: var(--navbarHeight);
 }
 
-#home > .title {
-  padding: 32px 54px 0;
+.home-image-container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+/* on small screens the image causes issues -> FIX LATER */
+.home-image-container img {
+  width: 90%;
+}
+
+.home-title-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+}
+
+.home-title {
+  min-width: 240px;
+  max-width: 400px;
+}
+
+.home-title > button {
+  border: none;
+  border-radius: 50px;
+  padding: 12px 24px;
+  font-weight: bold;
+  background: var(--primaryBlue);
+  color: var(--primaryWhite);
+}
+
+.home-title > p {
+  padding: 32px 0;
   font-size: 2rem;
   font-weight: bolder;
 }
 
-#home .book-card-container {
+#home-category {
+  color: var(--primaryWhite);
+  font-weight: bold;
+  width: 100%;
+  height: 200px;
+  font-size: 2rem;
+  text-align: center;
+}
+
+#home-new-books {
+  background: var(--primaryBlue);
+  color: var(--primaryWhite);
+  text-align: center;
+  width: 100%;
+  font-weight: bold;
+  font-size: 2rem;
+  padding: 2rem 0 1rem 0;
+}
+
+#home-new-books > .carousel {
+  height: 400px;
+  width: 100%;
+  padding: 20px 20px;
+}
+
+#home-new-books img {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: flex-start;
+  max-width: 240px;
+  height: 280px;
+  margin: auto;
+  border-radius: 8px;
 }

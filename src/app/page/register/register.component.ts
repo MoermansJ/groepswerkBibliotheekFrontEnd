@@ -13,7 +13,6 @@ export class RegisterComponent {
   public password: string = '';
   public result: string = '';
 
-
   //constructor
   constructor(private apiService: ApiService) {}
 
@@ -23,7 +22,7 @@ export class RegisterComponent {
   public handleRegister(): void {
     //email + pw form validation
     if (!this.email.trim() || !this.password.trim()) {
-      this.result = "Credentials invalid";
+      this.result = 'Credentials invalid';
       return;
     }
     const url = `http://localhost:8080/user/registerUser`;
@@ -31,8 +30,8 @@ export class RegisterComponent {
     this.apiService
       .post(url, { email: this.email, password: this.password })
       .subscribe({
-        next: (response : any) => this.result = "Registration OK",
-        error: (error : any) =>  this.result = "Registration FAILED"
+        next: (response: any) => (this.result = 'Registration OK'),
+        error: (error: any) => (this.result = 'Registration FAILED'),
       });
   }
 }

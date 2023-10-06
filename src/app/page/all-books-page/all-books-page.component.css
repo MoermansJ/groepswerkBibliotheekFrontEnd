@@ -1,0 +1,19 @@
+#all-books {
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--navbarHeight);
+}
+
+#all-books > .title {
+  padding: 32px 0;
+  font-size: 2rem;
+  font-weight: bolder;
+  text-align: center;
+}
+
+#all-books .book-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}

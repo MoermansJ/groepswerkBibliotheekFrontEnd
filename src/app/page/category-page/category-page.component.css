@@ -1,0 +1,12 @@
+#category {
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--navbarHeight);
+}
+
+#category > .title {
+  padding: 32px 0;
+  font-size: 2rem;
+  font-weight: bolder;
+  text-align: center;
+}

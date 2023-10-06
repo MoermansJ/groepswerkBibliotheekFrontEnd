@@ -1,0 +1,7 @@
+<div id="all-books">
+	<div class="title">{{queryDescription}}</div>
+	<div class="book-card-container">
+		<app-book-card *ngFor="let book of allBooks" [book]="book" (click)="handleCardClick(book)" routerLink="../book">
+		</app-book-card>
+	</div>
+</div>

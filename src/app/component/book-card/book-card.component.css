@@ -5,6 +5,7 @@
   width: 240px;
   border-radius: 4px;
   padding: 1rem 0;
+  animation: fadeInUp 0.25s ease-out;
 }
 
 .book-card:hover {
@@ -20,4 +21,15 @@
 
 .book-card-details {
   text-align: center;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

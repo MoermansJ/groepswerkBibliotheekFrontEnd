@@ -1,14 +1,14 @@
 <nav>
-	<div class="nav-section">
-		<button class="nav-button" (click)="handleHomeClick()" routerLink="/">Home</button>
-	</div>
+	<div id="nav-layer-1" class="nav-layer">
+		<div>
+			<b>LOGO</b>
+		</div>
 
-	<div class="searchbar">
-		<input type="text" placeholder="Search books, authors..." [(ngModel)]="search" (keyup)="handleSearch()" />
-		<button (click)="handleSearch()">Search</button>
-	</div>
+		<div class="searchbar">
+			<input type="text" placeholder="Search books, authors..." [(ngModel)]="search" (keyup)="handleSearch()" />
+			<button (click)="handleSearch()">Search</button>
+		</div>
 
-	<div class="nav-section">
 		<!-- user is logged in -->
 		<span *ngIf="currentUser.email">
 			<p>Welcome {{currentUser.email}}</p>
@@ -22,5 +22,18 @@
 			<button class="nav-button" routerLink="/login">Log in</button>
 			<button class="nav-button" routerLink="/register">Register</button>
 		</span>
+	</div>
+
+
+
+	<div id="nav-layer-2" class="nav-layer">
+		<button class="nav-button" routerLink="/home" routerLinkActive="selected-page">Home</button>
+		<button class="nav-button" routerLink="/all-books" routerLinkActive="selected-page">All Books</button>
+		<button class="nav-button" routerLink="/category" routerLinkActive="selected-page">Category</button>
+		<button class="nav-button" routerLink="/under-construction" routerLinkActive="selected-page">Writer</button>
+		<button class="nav-button" routerLink="/under-construction" routerLinkActive="selected-page">Publisher</button>
+		<button class="nav-button" routerLink="/under-construction" routerLinkActive="selected-page">Gallery</button>
+		<button class="nav-button" routerLink="/under-construction" routerLinkActive="selected-page">About</button>
+		<button class="nav-button" routerLink="/under-construction" routerLinkActive="selected-page">Contact</button>
 	</div>
 </nav>
