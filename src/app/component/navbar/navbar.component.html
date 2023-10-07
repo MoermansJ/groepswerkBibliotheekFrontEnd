@@ -1,9 +1,9 @@
 <nav>
 	<div class="nav-section">
-		<button class="nav-button home-button" routerLink="/" (click)="handleHomeClick()" >Home</button>
+		<button class="nav-button home-button" routerLink="/" (click)="handleHomeClick()">Home</button>
 		<div>
 			<label for="browse-genre" *ngIf="showGenreSearch">Browse by genre</label>
-			<select id="browse-genre" *ngIf="showGenreSearch" (change)="findBooksByGenre($event)">
+			<select id="browse-genre" *ngIf="showGenreSearch">
 				<option *ngFor="let genre of genres" [value]="genre">{{genre}}</option>
 			</select>
 		</div>
