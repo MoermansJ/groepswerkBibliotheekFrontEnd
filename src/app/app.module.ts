@@ -20,7 +20,7 @@ import { CategoryPageComponent } from './page/category-page/category-page.compon
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ConstructionPageComponent } from './page/construction-page/construction-page.component';
 import { CategoryCardBigComponent } from './component/category-card-big/category-card-big.component';
-import { CategoryCardSmallComponent } from './category-card-small/category-card-small.component';
+import { CategoryCardSmallComponent } from './component/category-card-small/category-card-small.component';
 import { NgbModule, NgbCarousel, NgbSlide } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({

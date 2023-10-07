@@ -4,6 +4,7 @@ import Book from 'src/app/interface/Book';
 import { DataService } from 'src/app/service/data.service';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/service/api.service';
+import { BookService } from 'src/app/service/book.service';
 
 @Component({
   selector: 'app-book',
@@ -21,6 +22,7 @@ export class BookComponent {
 
   //constructor
   constructor(
+    private bookService: BookService,
     private dataService: DataService,
     private apiService: ApiService,
     private router: Router
@@ -55,19 +57,8 @@ export class BookComponent {
     this.dataServiceSubscription.unsubscribe(); // Unsubscribe to prevent memory leaks
   }
 
-  public findBooksByGenre(): void {
-    const url = `http://localhost:8080/book/getBooksByGenre?genre=${this.bookGenre}`;
-
-    this.apiService.get(url).subscribe({
-      next: (response: Book[]) => {
-        this.dataService.setSearchResults(response);
-        this.dataService.setQueryDescription(
-          'Books in genre ' + this.bookGenre
-        );
-      },
-      error: (error: any) => console.error(error),
-    });
-
-    this.router.navigate(['']);
+  public handleGenreClick(): void {
+    this.bookService.findBooksByGenre(this.bookGenre);
+    this.router.navigate(['/all-books']);
   }
 }

@@ -1,0 +1,31 @@
+.category-card-small {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+
+  border-radius: 8px;
+  width: 220px;
+  height: 220px;
+
+  cursor: pointer;
+
+  overflow: hidden;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.category-card-small p {
+  color: var(--primaryWhite);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 1); /* Adjust the shadow values as needed */
+}
+
+.category-card-small img {
+  position: absolute;
+  z-index: -1;
+  height: 100%;
+}

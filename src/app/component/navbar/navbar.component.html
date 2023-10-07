@@ -1,12 +1,12 @@
 <nav>
 	<div id="nav-layer-1" class="nav-layer">
-		<div>
+		<div class="nav-logo">
 			<b>LOGO</b>
 		</div>
 
 		<div class="searchbar">
-			<input type="text" placeholder="Search books, authors..." [(ngModel)]="search" (keyup)="handleSearch()" />
-			<button (click)="handleSearch()">Search</button>
+			<input type="text" placeholder="Search books, authors..." [(ngModel)]="search" (keyup)="handleSearch($event)" />
+			<button (click)="handleSearchClick()">Search</button>
 		</div>
 
 		<!-- user is logged in -->
@@ -28,12 +28,12 @@
 
 	<div id="nav-layer-2" class="nav-layer">
 		<button class="nav-button" routerLink="/home" routerLinkActive="selected-page">Home</button>
-		<button class="nav-button" routerLink="/all-books" routerLinkActive="selected-page">All Books</button>
+		<button class="nav-button" routerLink="/all-books" routerLinkActive="selected-page" (click)="handleClickAllBooks()">All Books</button>
 		<button class="nav-button" routerLink="/category" routerLinkActive="selected-page">Category</button>
-		<button class="nav-button" routerLink="/under-construction" routerLinkActive="selected-page">Writer</button>
-		<button class="nav-button" routerLink="/under-construction" routerLinkActive="selected-page">Publisher</button>
-		<button class="nav-button" routerLink="/under-construction" routerLinkActive="selected-page">Gallery</button>
-		<button class="nav-button" routerLink="/under-construction" routerLinkActive="selected-page">About</button>
-		<button class="nav-button" routerLink="/under-construction" routerLinkActive="selected-page">Contact</button>
+		<button class="nav-button" routerLink="/writer" routerLinkActive="selected-page">Writer</button>
+		<button class="nav-button" routerLink="/publisher" routerLinkActive="selected-page">Publisher</button>
+		<button class="nav-button" routerLink="/gallery" routerLinkActive="selected-page">Gallery</button>
+		<button class="nav-button" routerLink="/about" routerLinkActive="selected-page">About</button>
+		<button class="nav-button" routerLink="/contact" routerLinkActive="selected-page">Contact</button>
 	</div>
 </nav>

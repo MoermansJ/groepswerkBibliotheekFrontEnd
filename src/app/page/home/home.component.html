@@ -1,37 +1,45 @@
 <div id="home">
-	<div class="home-title-container">
-		<div class="home-title">
-			<p>Explore, read, and learn with our vast digital library collection.</p>
+	<div class="home-title">
+		<div class="home-title-left">
+			<p class="subtitle">Explore, read, and learn with our vast digital library collection.</p>
 			<button>Read more</button>
 		</div>
-		<div class="home-image-container">
+		<div class="home-title-right">
 			<img src="assets/img/home.svg" />
 		</div>
 	</div>
 
 
+	<div id="home-category">
+		<div class="subtitle">Genres</div>
+		<div class="home-category-wrapper">
+			<app-category-card-small *ngFor="let genre of genres" [genre]="genre"></app-category-card-small>
+		</div>
+	</div>
+
+
 	<div id="home-new-books">
-		<div>Latest books</div>
-		<ngb-carousel [interval]="3500" class="carousel">
-			<ng-template ngbSlide *ngFor="let book of newestBooks" (click)="handleCardClick(book)">
-				<img [src]="book.image" />
-				<p>{{book.title}}</p>
+		<div class="subtitle">New books</div>
+		<ngb-carousel [interval]="5000" class="carousel">
+			<ng-template ngbSlide *ngFor="let book of newestBooks">
+				<div class="carousel-book " (click)="handleCardClick(book)" routerLink="/book">
+					<img [src]="book.image" />
+					<div class="carousel-book-text">
+						<p class="subtitle">{{book.title}}</p>
+						<p class="italic">{{book.description}}</p>
+					</div>
+				</div>
 			</ng-template>
 		</ngb-carousel>
 	</div>
 
 
-	<div id="home-category">
-		<p>All different categories : cards </p>
-	</div>
-
-
-
+	<!-- 
 	<div id="home-writers">
 		<p></p>
 	</div>
 
 	<div id="home-footer">
 		<p>home-footer</p>
-	</div>
-</div>>
+	</div> -->
+</div>

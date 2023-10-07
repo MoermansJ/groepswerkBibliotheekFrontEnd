@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import Book from 'src/app/interface/Book';
 import { ApiService } from 'src/app/service/api.service';
@@ -18,6 +19,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   //constructor
   constructor(
+    private router: Router,
     private dataService: DataService,
     private bookService: BookService,
     private apiService: ApiService

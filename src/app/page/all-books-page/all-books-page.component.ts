@@ -25,8 +25,6 @@ export class AllBooksPageComponent implements OnInit, OnDestroy {
 
   //custom methods
   ngOnInit(): void {
-    this.bookService.getAllBooks();
-
     //subscribing to dataService
     this.dataServiceSubscription = this.dataService
       .getSearchResults()

@@ -19,6 +19,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   //properties
   public search: string = '';
   public genres: string[] = [];
+  private previousSearch: string = '';
 
   //data service
   private dataServiceSubscription: Subscription = new Subscription();
@@ -53,8 +54,36 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.dataServiceSubscription.unsubscribe(); // Unsubscribe to prevent memory leaks
   }
 
-  public handleSearch(): void {
+  public handleSearch(event: KeyboardEvent): void {
+    //if user doesn't hit enter
+    if (event.key.toUpperCase() !== 'ENTER') return;
+
+    //if two or more consecutive empty searches
+    if (
+      this.search.trim().length === 0 &&
+      this.previousSearch.trim().length === 0
+    )
+      return;
+
+    this.previousSearch = this.search;
+
+    //navigate to search result page & execute query
+    this.router.navigate(['all-books']);
+    setTimeout(() => {
+      this.bookService.getBooksByTitleOrAuthor(this.search);
+    }, 1);
+  }
+
+  public handleSearchClick(): void {
+    this.router.navigate(['all-books']);
+
+    if (this.search.trim().length == 0) return;
+
     this.bookService.getBooksByTitleOrAuthor(this.search);
+  }
+
+  public handleEnter(): void {
+    this.router.navigate(['']);
   }
 
   public handleHomeClick(): void {
@@ -66,5 +95,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
     setTimeout(() => {
       this.router.navigate(['']);
     }, 1);
+  }
+
+  public handleClickAllBooks(): void {
+    this.bookService.getAllBooks();
   }
 }

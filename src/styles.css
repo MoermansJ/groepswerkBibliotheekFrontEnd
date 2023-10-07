@@ -31,3 +31,7 @@ button {
   border-radius: 50px !important;
   color: var(--primaryBlack) !important;
 }
+
+.italic {
+  font-style: italic;
+}

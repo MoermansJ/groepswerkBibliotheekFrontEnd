@@ -30,14 +30,13 @@ export class BookService {
     });
   }
 
-  public findBooksByGenre(event: any): void {
-    const genre = event.target.value;
-    const url = `http://localhost:8080/book/getBooksByGenre?genre=${genre}`;
+  public findBooksByGenre(genre: string): void {
+    const url = `http://localhost:8080/book/getBooksByGenre?genre=${genre.toLowerCase()}`;
 
     this.apiService.get(url).subscribe({
       next: (response: Book[]) => {
         this.dataService.setSearchResults(response);
-        this.dataService.setQueryDescription('Books in genre ' + genre);
+        this.dataService.setQueryDescription("Books in genre '" + genre + "'");
       },
       error: (error: any) => console.error(error),
     });
