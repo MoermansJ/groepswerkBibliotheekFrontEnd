@@ -1,3 +1,6 @@
+<app-navbar></app-navbar>
+
+<div>
 <div id="login">
 	<label for="input-email">E-mail: </label>
 	<input type="text" id="input-email" [(ngModel)]="inputEmail" />
@@ -10,5 +13,8 @@
 	<div *ngIf="successfullAttempt">
 		<p>welcome {{inputEmail}}, <br /> you will be redirected to the Home-page automatically...</p>
 	</div>
+
+	<button (click)="registerUser()">REGISTER USER</button>
+</div>
 
 </div>
