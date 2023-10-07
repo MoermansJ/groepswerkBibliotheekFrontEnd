@@ -31,6 +31,13 @@ export class AddBookPageComponent {
       description: this.description,
     }).subscribe()
 
+    this.isbn = '';
+    this.author = '';
+    this.title = '';
+    this.image = '';
+    this.genre = '';
+    this.description = '';
+
   }
 
 }

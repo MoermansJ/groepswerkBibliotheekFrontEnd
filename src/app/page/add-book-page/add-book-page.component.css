@@ -1,4 +1,130 @@
-#add-book-page {
-  padding: 100px;
+/*#add-book-page {*/
+/*  padding: 100px;*/
+/*  background-image: url('/assets/pictures/trnava-university-BEEyeib-am8-unsplash.jpg'); !* Шлях до вашого зображення *!*/
+/*  background-size: cover; !* Растягуємо зображення на всю площину фону *!*/
+/*  background-repeat: no-repeat; !* Відключаємо повторення фону *!*/
+/*  background-attachment: fixed; !* Фон зафіксований при прокручуванні сторінки *!*/
+/*  margin: 0; !* Відключаємо зовнішні відступи для body *!*/
+/*  width: 89svw;*/
+/*  height: 80vh;*/
+/*  position: fixed;*/
+/*}*/
 
+/*#fields-container{*/
+/*  width: 600px;*/
+/*  background-color: rgba(14, 11, 11, 0.45);*/
+/*  margin: 100px auto 0 auto;*/
+/*  display: grid;*/
+/*  !*gap: 30px;*!*/
+/*  padding: 20px;*/
+
+
+/*}*/
+/*input{*/
+/*  margin: 0 auto 20px auto;*/
+/*  width: 500px;*/
+/*  height: 20px;*/
+
+/*}*/
+
+/*h1{*/
+/*  color: white;*/
+/*  text-align: center;*/
+/*}*/
+
+/*form{*/
+/*  color: white;*/
+/*}*/
+
+/*button{*/
+/*  !*width: 200px;*!*/
+/*  !*height: 30px;*!*/
+/*  !*background-color: #2f3f3e;*!*/
+/*  border: none;*/
+/*  !*color: #cccccc;*!*/
+
+/*  border-radius: 75px;*/
+/*  height: 80px;*/
+/*  width: 500px;*/
+/*  margin: 0 auto;*/
+/*  font-size: 26px;*/
+/*  background-color: #2f3f3e;*/
+/*  color: #eae2e2;*/
+
+
+/*}*/
+/*button:hover {*/
+/*  background-color: red;*/
+/*}*/
+
+/*label{*/
+/*  margin-left: 47px;*/
+/*}*/
+
+#add-book-page {
+  box-sizing: border-box;
+  padding: 70px;
+  background-image: url('/assets/pictures/trnava-university-BEEyeib-am8-unsplash.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+#fields-container {
+  padding: 20px;
+  width: 600px;
+  background-color: rgba(14, 11, 11, 0.8); /* Увеличьте прозрачность до 0.8 */
+  margin: 150px auto 0 auto;
+  border-radius: 10px; /* Добавьте скругление углов */
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+
+
+
+
+input {
+  margin: 0 auto 20px auto;
+  width: 70%; /* Заполните 100% ширины контейнера */
+  height: 40px;
+  /*padding: 5px;*/
+  border: none;
+  background-color: rgba(255, 255, 255, 0.9); /* Цвет с прозрачностью */
+  border-radius: 5px;
+  line-height: 40px;
+
+}
+.input-block{
+  display: grid;
+  grid-template-columns: 5% 95%;
+}
+h1 {
+  color: white;
+  text-align: center;
+}
+
+form {
+  color: white;
+}
+
+button {
+  border: none;
+  border-radius: 10px;
+  height: 60px;
+  width: 300px;
+  margin: 0 auto;
+  font-size: 24px;
+  background-color: #2f3f3e; /* Цвет кнопки */
+  color: #eae2e2;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: rgba(47, 63, 62, 0.5); /* Цвет кнопки при наведении */
 }
