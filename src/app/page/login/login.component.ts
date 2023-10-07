@@ -1,6 +1,9 @@
-import { Component } from '@angular/core';
 import { ApiService } from '../../service/api.service';
 import User from '../../interface/User';
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { DataService } from 'src/app/service/data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,26 +11,35 @@ import User from '../../interface/User';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  //properties
+  // properties
   public inputEmail: string = '';
   public inputPassword: string = '';
+  public successfullAttempt: boolean = false;
 
   //constructor
-  constructor(private apiService: ApiService) {}
+  constructor(
+    private apiService: ApiService,
+    private dataService: DataService,
+    private router: Router
+  ) {}
 
-  //getters & setters
+  // getters & setters
 
   //custom methods
-  public registerUser(): void {
-    const url = 'http://localhost:8080/user/registerUser';
-    const body: User = {
-      id: 0,
-      email: 'email',
-      password: 'password',
-      isAdmin: false,
-      borrowedBookList: [],
-    };
-
-    this.apiService.post(url, body).subscribe();
+  public login(): void {
+    const url = 'http://localhost:8080/user/loginUser';
+    this.apiService
+      .post(url, { email: this.inputEmail, password: this.inputPassword })
+      .subscribe({
+        next: (response: User) => {
+          this.successfullAttempt = true;
+          this.dataService.setCurrentUser(response);
+          console.log(response);
+          setTimeout(() => this.router.navigate(['']), 2000);
+        },
+        error: (error: any) => {
+          console.error('Login failed', error);
+        },
+      });
   }
 }

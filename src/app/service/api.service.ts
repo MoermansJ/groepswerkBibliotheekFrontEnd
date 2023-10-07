@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { DataService } from './data.service';
+import Book from '../interface/Book';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +15,7 @@ export class ApiService {
 
   //getters & setters
 
-  //custom methods
+  //HTTP methods
   public get(url: string): Observable<any> {
     return this.http.get<any>(url);
   }
@@ -22,7 +24,7 @@ export class ApiService {
     return this.http.post(url, body);
   }
 
-  public delete(url: string) : Observable<any>{
+  public delete(url: string): Observable<any> {
     return this.http.delete(url);
   }
 }

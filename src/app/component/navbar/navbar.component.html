@@ -11,11 +11,30 @@
 
 	<div class="searchbar" *ngIf="showSearchbar">
 		<input type="text" placeholder="Search books, authors..." [(ngModel)]="search" />
+		<button class="nav-button" (click)="handleHomeClick()" routerLink="/">Home</button>
+	</div>
+
+	<div class="searchbar">
+		<input type="text" placeholder="Search books, authors..." [(ngModel)]="search" (keyup)="handleSearch()" />
 		<button (click)="handleSearch()">Search</button>
 	</div>
 
 	<div class="nav-section">
 		<button class="nav-button" *ngIf="showRegisterButton" routerLink="/login">Login</button>
 		<button class="nav-button" *ngIf="showLoginButton" routerLink="/register">Register</button>
+
+		<!-- user is logged in -->
+		<span *ngIf="currentUser.email">
+			<p>Welcome {{currentUser.email}}</p>
+			<button routerLink="/user">User-page</button>
+			<button *ngIf="currentUser.admin" routerLink="/admin-page">Admin-page</button>
+			<button (click)="handleLogOut()">Log out</button>
+		</span>
+
+		<!-- user is NOT logged in -->
+		<span *ngIf="!currentUser.email">
+			<button class="nav-button" routerLink="/login">Log in</button>
+			<button class="nav-button" routerLink="/register">Register</button>
+		</span>
 	</div>
 </nav>

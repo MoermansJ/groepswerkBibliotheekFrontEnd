@@ -4,6 +4,6 @@ export default interface User {
   id: number;
   email: string;
   password: string;
-  isAdmin: boolean;
-  borrowedBookList: BorrowedBook[];
+  admin: boolean;
+  borrowedBookIdList: number[];
 }
