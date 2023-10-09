@@ -72,3 +72,10 @@ nav {
   padding: 8px 12px;
   font-weight: bold;
 }
+
+.home-button {
+  position: fixed;
+  left: 20px;
+  top: 20px;
+  z-index: 999;
+}

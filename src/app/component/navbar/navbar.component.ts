@@ -1,11 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-
 import { Injectable } from '@angular/core';
 import { DataService } from 'src/app/service/data.service';
 import User from 'src/app/interface/User';
 import { BookService } from 'src/app/service/book.service';
 import { Subscription } from 'rxjs';
-import { Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -18,8 +18,13 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit, OnDestroy {
   //properties
   public search: string = '';
-  public genres: string[] = [];
+  // public genres: string[] = [];
   private previousSearch: string = '';
+  public showNavbar: boolean = true;
+  private hideNavbarPages: string[] = ['admin-page', 'add-book-page'];
+  // public showSearchbar: boolean = true;
+  // public showRegisterButton: boolean = true;
+  // public showLoginButton: boolean = true;
 
   //data service
   private dataServiceSubscription: Subscription = new Subscription();
@@ -29,7 +34,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
   constructor(
     private bookService: BookService,
     private dataService: DataService,
-    private router: Router
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) {}
 
   //getters & setters
@@ -43,10 +49,23 @@ export class NavbarComponent implements OnInit, OnDestroy {
         this.currentUser = value;
       });
 
-    this.dataServiceSubscription = this.dataService
-      .getGenres()
-      .subscribe((value: string[]) => {
-        this.genres = value;
+    this.router.events
+      .pipe(
+        filter(
+          (event): event is NavigationEnd => event instanceof NavigationEnd
+        )
+      )
+      .subscribe((event: NavigationEnd) => {
+        const currentRoute =
+          this.activatedRoute.root.firstChild?.snapshot.url.join('/');
+
+        if (currentRoute) {
+          if (this.hideNavbarPages.includes(currentRoute as string)) {
+            this.showNavbar = false;
+          } else {
+            this.showNavbar = true;
+          }
+        }
       });
   }
 

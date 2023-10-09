@@ -8,7 +8,7 @@ import { HomeComponent } from './page/home/home.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { LoginComponent } from './page/login/login.component';
 import { FormsModule } from '@angular/forms';
-import { BookComponent } from './page/book/book/book.component';
+import { BookComponent } from './page/book/book.component';
 import { BookCardComponent } from './component/book-card/book-card.component';
 import { RegisterComponent } from './page/register/register.component';
 import { AdminPageComponent } from './page/admin-page/admin-page.component';
@@ -22,6 +22,7 @@ import { ConstructionPageComponent } from './page/construction-page/construction
 import { CategoryCardBigComponent } from './component/category-card-big/category-card-big.component';
 import { CategoryCardSmallComponent } from './component/category-card-small/category-card-small.component';
 import { NgbModule, NgbCarousel, NgbSlide } from '@ng-bootstrap/ng-bootstrap';
+import { NgOptimizedImage } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { NgbModule, NgbCarousel, NgbSlide } from '@ng-bootstrap/ng-bootstrap';
     NgbModule,
     NgbCarousel,
     NgbSlide,
+    NgOptimizedImage,
   ],
   providers: [],
   bootstrap: [AppComponent],

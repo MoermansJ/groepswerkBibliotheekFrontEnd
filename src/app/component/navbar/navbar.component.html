@@ -1,8 +1,6 @@
-<nav>
+<nav *ngIf="showNavbar">
 	<div id="nav-layer-1" class="nav-layer">
-		<div class="nav-logo">
-			<b>LOGO</b>
-		</div>
+		<button class="nav-button home-button" routerLink="/home" (click)="handleHomeClick()">LOGO/HOME</button>
 
 		<div class="searchbar">
 			<input type="text" placeholder="Search books, authors..." [(ngModel)]="search" (keyup)="handleSearch($event)" />

@@ -1,9 +1,7 @@
 import { ApiService } from '../../service/api.service';
 import User from '../../interface/User';
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
 import { DataService } from 'src/app/service/data.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -19,8 +17,7 @@ export class LoginComponent {
   //constructor
   constructor(
     private apiService: ApiService,
-    private dataService: DataService,
-    private router: Router
+    private dataService: DataService
   ) {}
 
   // getters & setters
@@ -35,7 +32,6 @@ export class LoginComponent {
           this.successfullAttempt = true;
           this.dataService.setCurrentUser(response);
           console.log(response);
-          setTimeout(() => this.router.navigate(['']), 2000);
         },
         error: (error: any) => {
           console.error('Login failed', error);

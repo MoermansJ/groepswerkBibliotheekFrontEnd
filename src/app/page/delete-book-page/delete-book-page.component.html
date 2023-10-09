@@ -1,8 +1,34 @@
 <div id="delete-book-page">
-  <input type="text" placeholder="Search books, id" [(ngModel)]="search" />
-  {{book}}
-  <button id="searchBookById" (click)="searchById()">Search</button>
-  <button id="deleteBookById" (click)="deleteById()">Delete</button>
+	<div class="delete-container">
+		<h1>Find your book</h1>
+		<div class="search-container">
+			<input type="text" placeholder="Search books, id" [(ngModel)]="search" />
+			<!--  {{book}}-->
+			<button id="searchBookById" (click)="searchById()">Search</button>
+		</div>
 
 
+		<div class="book-details" *ngIf="book.id">
+			<h2>Book Details:</h2>
+			<img [src]="book.image" alt="Book Image">
+			<p><strong>ID:</strong> {{ book.id }}</p>
+			<p><strong>Title:</strong> {{ book.title }}</p>
+			<p><strong>Genre:</strong> {{ book.genre }}</p>
+			<p><strong>ISBN:</strong> {{ book.isbn }}</p>
+			<p><strong>Description:</strong> {{ book.description }}</p>
+			<button class="deleteBookById" id="deleteBookById" (click)="showConfirmationDialog()">Delete</button>
+		</div>
+		<div class="modal" id="confirmation-dialog" *ngIf="showConfirmation">
+			<div class="modal-content">
+				<p>Are you sure you want to delete book?</p>
+				<button class="deleteBook" (click)="deleteById()">Delete</button>
+				<button (click)="cancelDeletion()">Cancel</button>
+			</div>
+
+			<div *ngIf="showSuccessMessage" class="success-message">
+				Book successfully deleted!
+			</div>
+		</div>
+
+	</div>
 </div>

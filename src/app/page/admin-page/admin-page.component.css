@@ -1,3 +1,48 @@
-#admin-page{
-  padding: 100px;
+#admin-page {
+  box-sizing: border-box;
+  padding: 70px;
+  background-image: url("/assets/pictures/trnava-university-BEEyeib-am8-unsplash.jpg"); /* Шлях до вашого зображення */
+  background-size: cover; /* Растягуємо зображення на всю площину фону */
+  background-repeat: no-repeat; /* Відключаємо повторення фону */
+  background-attachment: fixed; /* Фон зафіксований при прокручуванні сторінки */
+  margin: 0; /* Відключаємо зовнішні відступи для body */
+  width: 100vw;
+  height: 100vh;
+}
+
+#buttons-container {
+  width: 600px;
+  /*background-color: rgb(18 10 5);*/
+  background-color: rgba(14, 11, 11, 0.8);
+  /*background-image: url("/assets/pictures/museums-victoria-5g3m1WPjrLI-unsplash.jpg");*/
+  background-size: cover; /* Растягуємо зображення на всю площину фону */
+  background-repeat: no-repeat; /* Відключаємо повторення фону */
+  background-attachment: fixed; /* Фон зафіксований при прокручуванні сторінки */
+  margin: 150px auto 0 auto;
+  display: grid;
+  gap: 30px;
+  padding: 60px;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.nav-button {
+  border: none;
+  border-radius: 10px;
+  height: 80px;
+  width: 500px;
+  margin: 0 auto;
+  font-size: 26px;
+  /*background-color: #1f2023;*/
+  background-color: #2f3f3e;
+  color: #eae2e2;
+}
+
+.nav-button:hover {
+  background-color: rgba(47, 63, 62, 0.5);
+}
+
+h1 {
+  color: white;
+  text-align: center;
 }

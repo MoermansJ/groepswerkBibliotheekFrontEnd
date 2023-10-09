@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './page/home/home.component';
 import { LoginComponent } from './page/login/login.component';
-import { BookComponent } from './page/book/book/book.component';
+import { BookComponent } from './page/book/book.component';
 import { RegisterComponent } from './page/register/register.component';
 import { AddBookPageComponent } from './page/add-book-page/add-book-page.component';
 import { AdminPageComponent } from './page/admin-page/admin-page.component';
