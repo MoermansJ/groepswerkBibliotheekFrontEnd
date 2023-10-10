@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './page/home/home.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { LoginComponent } from './page/login/login.component';
@@ -17,7 +18,6 @@ import { DeleteBookPageComponent } from './page/delete-book-page/delete-book-pag
 import { UserPageComponent } from './page/user-page/user-page.component';
 import { AllBooksPageComponent } from './page/all-books-page/all-books-page.component';
 import { CategoryPageComponent } from './page/category-page/category-page.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ConstructionPageComponent } from './page/construction-page/construction-page.component';
 import { CategoryCardBigComponent } from './component/category-card-big/category-card-big.component';
 import { CategoryCardSmallComponent } from './component/category-card-small/category-card-small.component';
@@ -67,6 +67,7 @@ import { NewBooksCarouselComponent } from './component/new-books-carousel/new-bo
     NgbSlide,
     NgOptimizedImage,
   ],
+
   providers: [],
   bootstrap: [AppComponent],
 })

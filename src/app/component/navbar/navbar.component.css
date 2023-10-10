@@ -81,3 +81,9 @@ nav {
   background: var(--primaryWhite) !important;
   border: 2px solid var(--primaryWhite) !important;
 }
+.home-button {
+  position: fixed;
+  left: 20px;
+  top: 20px;
+  z-index: 999;
+}

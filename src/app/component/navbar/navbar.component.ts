@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { DataService } from 'src/app/service/data.service';
+
 import User from 'src/app/interface/User';
 import { BookService } from 'src/app/service/book.service';
 import { Subscription } from 'rxjs';
@@ -41,7 +42,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   //getters & setters
 
   //custom methods
-  ngOnInit() {
+  ngOnInit(): void {
     //subscribing to dataService
     this.dataServiceSubscription = this.dataService
       .getCurrentUser()

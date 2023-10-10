@@ -12,6 +12,10 @@ export class DeleteBookPageComponent {
   public book: Book = {} as Book;
   public showConfirmation: boolean = false;
   public showSuccessMessage: boolean = false;
+  public search: string = '';
+  public book: Book = {} as Book;
+  public showConfirmation: boolean = false;
+  public showSuccessMessage: boolean = false;
 
   constructor(private apiService: ApiService) {}
 
