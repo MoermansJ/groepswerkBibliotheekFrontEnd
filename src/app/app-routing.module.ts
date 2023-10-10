@@ -15,6 +15,7 @@ import { ConstructionPageComponent } from './page/construction-page/construction
 const routes: Routes = [
   //Angular - common
   { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'category', redirectTo: '/under-construction', pathMatch: 'full' },
   { path: 'writer', redirectTo: '/under-construction', pathMatch: 'full' },
   { path: 'publisher', redirectTo: '/under-construction', pathMatch: 'full' },
   { path: 'gallery', redirectTo: '/under-construction', pathMatch: 'full' },

@@ -1,45 +1,64 @@
 <div id="home">
-	<div class="home-title">
-		<div class="home-title-left">
-			<p class="subtitle">Explore, read, and learn with our vast digital library collection.</p>
-			<button>Read more</button>
-		</div>
-		<div class="home-title-right">
-			<img src="assets/img/home.svg" />
-		</div>
+	<!-- page title -->
+	<div>
+		<p class="subtitle">Explore, read, and learn with our vast digital library collection.</p>
 	</div>
 
+	<!-- new books -->
+	<div id="home-new-books">
+		<app-new-books-carousel />
+	</div>
 
+	<!-- book categories -->
 	<div id="home-category">
-		<div class="subtitle">Genres</div>
+		<div>
+			<p class="subtitle">Browse your favourite genres</p>
+		</div>
 		<div class="home-category-wrapper">
 			<app-category-card-small *ngFor="let genre of genres" [genre]="genre"></app-category-card-small>
 		</div>
 	</div>
 
-
-	<div id="home-new-books">
-		<div class="subtitle">New books</div>
-		<ngb-carousel [interval]="5000" class="carousel">
-			<ng-template ngbSlide *ngFor="let book of newestBooks">
-				<div class="carousel-book " (click)="handleCardClick(book)" routerLink="/book">
-					<img [src]="book.image" />
-					<div class="carousel-book-text">
-						<p class="subtitle">{{book.title}}</p>
-						<p class="italic">{{book.description}}</p>
-					</div>
-				</div>
-			</ng-template>
-		</ngb-carousel>
-	</div>
-
-
-	<!-- 
-	<div id="home-writers">
-		<p></p>
-	</div>
-
+	<!-- footer -->
 	<div id="home-footer">
-		<p>home-footer</p>
-	</div> -->
+		<p>This website is part of a group project developed by</p>
+
+		<div class="footer-profile-wrapper">
+			<div class="footer-profile">
+				<p>Huseyin O.</p>
+				<div class="footer-profile-links">
+					<a href="https://github.com/HuseyinOturan" target="_blank">GitHub</a>
+					<a href="https://www.linkedin.com/in/h%C3%BCseyin-oturan-a89b13249/" target="_blank">LinkedIn</a>
+				</div>
+			</div>
+
+			<div class="footer-profile">
+				<p>Dmytro O.</p>
+				<div class="footer-profile-links">
+					<a href="https://github.com/DmytroOpr" target="_blank">GitHub</a>
+					<a href="https://www.linkedin.com/in/dmytro-opriatnov-b09044a4/" target="_blank">LinkedIn</a>
+				</div>
+			</div>
+
+			<div class="footer-profile">
+				<p>Jonathan M.</p>
+				<div class="footer-profile-links">
+					<a href="https://github.com/MoermansJ" target="_blank">GitHub</a>
+					<a href="https://www.linkedin.com/in/jonathan-moermans/" target="_blank">LinkedIn</a>
+				</div>
+			</div>
+
+
+
+			<div class="footer-profile">
+				<p>Abderrahman E.</p>
+				<div class="footer-profile-links">
+					<a href="https://github.com/EZZAHIRAB" target="_blank">GitHub</a>
+					<a href="https://www.linkedin.com/in/abderrahman-ezzahir/" target="_blank">LinkedIn</a>
+				</div>
+			</div>
+		</div>
+
+		<p>Thanks for visiting <b>The Best Library</b>!</p>
+	</div>
 </div>

@@ -23,6 +23,7 @@ import { CategoryCardBigComponent } from './component/category-card-big/category
 import { CategoryCardSmallComponent } from './component/category-card-small/category-card-small.component';
 import { NgbModule, NgbCarousel, NgbSlide } from '@ng-bootstrap/ng-bootstrap';
 import { NgOptimizedImage } from '@angular/common';
+import { NewBooksCarouselComponent } from './component/new-books-carousel/new-books-carousel.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { NgOptimizedImage } from '@angular/common';
     BookCardComponent,
     ConstructionPageComponent,
     CategoryCardBigComponent,
+    NewBooksCarouselComponent,
 
     //Dmytro
     AdminPageComponent,

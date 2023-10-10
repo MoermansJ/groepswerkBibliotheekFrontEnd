@@ -9,7 +9,13 @@
   /* colours */
   --primaryBlack: black;
   --primaryWhite: white;
-  --primaryBlue: #008bff;
+  --primary: #0054a4;
+  --primaryDark: #002649;
+  --secondary: #808080;
+  --accent1: #6b8e23;
+  --accent2: #ffff99;
+  --accent3: #ff5733;
+  --textColour: #333333;
 }
 
 * {
@@ -25,13 +31,21 @@ button {
   cursor: pointer;
 }
 
-.selected-page {
-  background: var(--primaryWhite) !important;
-  border: none !important;
-  border-radius: 50px !important;
-  color: var(--primaryBlack) !important;
+a,
+a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
 }
 
 .italic {
   font-style: italic;
+}
+
+.subtitle {
+  font-size: 2rem;
+  font-weight: bolder;
 }

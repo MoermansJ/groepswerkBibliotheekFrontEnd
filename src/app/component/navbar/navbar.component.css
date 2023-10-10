@@ -26,14 +26,14 @@ nav {
 }
 
 .searchbar > button {
-  background-color: var(--primaryBlack); /* Button background color */
-  color: var(--primaryWhite); /* Text color */
-  padding: 10px; /* Add padding to the button */
-  border: none; /* Remove the button border */
+  background-color: var(--primaryDark);
+  color: var(--primaryWhite);
+  padding: 12px;
+  border: none;
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;
-  cursor: pointer; /* Change cursor to pointer on hover */
-  text-decoration: none; /* Remove underline style for buttons */
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .nav-layer {
@@ -42,13 +42,6 @@ nav {
   align-items: center;
   width: 100%;
   height: 100%;
-}
-
-.nav-section {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  color: var(--primaryWhite);
 }
 
 #nav-layer-1 .nav-button {
@@ -62,20 +55,29 @@ nav {
 }
 
 #nav-layer-2 {
-  background: var(--primaryBlack);
+  background: var(--primary);
 }
 
 #nav-layer-2 button {
   background: transparent;
   color: var(--primaryWhite);
   border: none;
-  padding: 8px 12px;
+  padding: 6px 12px;
   font-weight: bold;
+  border: 2px solid var(--primary);
+  border-radius: 50px;
+}
+
+#nav-layer-2 button:hover {
+  border: 2px solid var(--primaryWhite);
 }
 
 .home-button {
-  position: fixed;
-  left: 20px;
-  top: 20px;
   z-index: 999;
+}
+
+.selected-page {
+  color: var(--primary) !important;
+  background: var(--primaryWhite) !important;
+  border: 2px solid var(--primaryWhite) !important;
 }
