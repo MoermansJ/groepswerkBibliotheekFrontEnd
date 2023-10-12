@@ -1,0 +1,25 @@
+<div class="new-books">
+	<div class="carousel-description">
+		<p class="subtitle">New Books Every Month</p>
+		<p>
+			Our <b>online library</b> is your portal to a <b>diverse collection</b> of books.
+			We offer you fresh literary gems, from contemporary bestsellers to timeless classics.<br />
+			<br />
+			Our shelves are <b>updated monthly</b>, ensuring there's something for everyone and you're always on the cutting edge of reading.<br />
+		</p>
+	</div>
+
+	<div class="carousel-container">
+		<ngb-carousel class="carousel" [interval]="5000" [showNavigationArrows]="false" [showNavigationIndicators]="false">
+			<ng-template ngbSlide *ngFor="let book of newestBooks">
+				<div class="carousel-book " (click)="handleCardClick(book)" routerLink="/book">
+					<img [src]="book.image" />
+					<div class="carousel-book-details">
+						<p class="subtitle">{{book.title}}</p>
+						<p class="italic">{{book.description}}</p>
+					</div>
+				</div>
+			</ng-template>
+		</ngb-carousel>
+	</div>
+</div>

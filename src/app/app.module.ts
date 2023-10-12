@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './page/home/home.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { LoginComponent } from './page/login/login.component';
@@ -17,12 +18,12 @@ import { DeleteBookPageComponent } from './page/delete-book-page/delete-book-pag
 import { UserPageComponent } from './page/user-page/user-page.component';
 import { AllBooksPageComponent } from './page/all-books-page/all-books-page.component';
 import { CategoryPageComponent } from './page/category-page/category-page.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ConstructionPageComponent } from './page/construction-page/construction-page.component';
 import { CategoryCardBigComponent } from './component/category-card-big/category-card-big.component';
 import { CategoryCardSmallComponent } from './component/category-card-small/category-card-small.component';
 import { NgbModule, NgbCarousel, NgbSlide } from '@ng-bootstrap/ng-bootstrap';
 import { NgOptimizedImage } from '@angular/common';
+import { NewBooksCarouselComponent } from './component/new-books-carousel/new-books-carousel.component';
 import { WriterpageComponent } from './writerpage/writerpage.component';
 import { WriterPageComponent } from './writer-page/writer-page.component';
 import { GalleryPageComponent } from './gallery-page/gallery-page.component';
@@ -31,11 +32,8 @@ import { ContactPageComponent } from './contact-page/contact-page.component';
 
 @NgModule({
   declarations: [
-    //Angular - common
     AppComponent,
     NavbarComponent,
-
-    //Jonathan
     HomeComponent,
     AllBooksPageComponent,
     CategoryPageComponent,
@@ -43,16 +41,11 @@ import { ContactPageComponent } from './contact-page/contact-page.component';
     BookCardComponent,
     ConstructionPageComponent,
     CategoryCardBigComponent,
-
-    //Dmytro
+    NewBooksCarouselComponent,
     AdminPageComponent,
     AddBookPageComponent,
     DeleteBookPageComponent,
-
-    //Abderrahman
     LoginComponent,
-
-    //Huseyin
     UserPageComponent,
     RegisterComponent,
     CategoryCardSmallComponent,
@@ -62,7 +55,6 @@ import { ContactPageComponent } from './contact-page/contact-page.component';
     AboutPageComponent,
     ContactPageComponent,
 
-    //TO SORT
   ],
   imports: [
     BrowserModule,
@@ -75,6 +67,7 @@ import { ContactPageComponent } from './contact-page/contact-page.component';
     NgbSlide,
     NgOptimizedImage,
   ],
+
   providers: [],
   bootstrap: [AppComponent],
 })

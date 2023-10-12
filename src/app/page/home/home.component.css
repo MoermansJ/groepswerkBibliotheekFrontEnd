@@ -3,51 +3,28 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 40px;
-  padding-top: var(--navbarHeight);
+  padding-top: calc(2rem + var(--navbarHeight));
   margin: auto;
 }
 
-#home .subtitle {
-  font-size: 2rem;
-  font-weight: bolder;
-  text-align: center;
-}
-
-/* home-title */
-.home-title {
-  display: flex;
-  height: 300px;
-  padding-top: 20px;
-  justify-content: center;
-}
-
-.home-title-left {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 50%;
-}
-
-.home-title-left button {
-  border: none;
-  border-radius: 50px;
-  padding: 12px 24px;
-  font-weight: bold;
-  background: var(--primaryBlue);
-  color: var(--primaryWhite);
-}
-
-.home-title-right img {
-  height: 100%;
-  width: 100%;
+/* home-new-books */
+#home-new-books {
+  min-height: 380px;
+  width: 90%;
 }
 
 /* home-category */
 #home-category {
   text-align: center;
   width: 100%;
+  border-top: 2px solid rgb(0, 0, 0, 0.2);
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+  width: 90%;
+}
+
+#home-category .subtitle {
+  padding-bottom: 0.6rem;
 }
 
 .home-category-wrapper {
@@ -55,40 +32,54 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  margin: auto;
+  gap: 20px;
+  max-width: 940px; /* max 4 tiles per row */
+}
+
+/* home-footer */
+#home-footer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem 2rem 0;
+  width: 100%;
+  background: var(--primaryDark);
+  color: var(--primaryWhite);
+}
+
+.footer-profile-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 860px;
   gap: 20px;
 }
 
-/* home-new books */
-#home-new-books {
-  background: var(--primaryBlue);
-  color: var(--primaryWhite);
-  text-align: center;
-  width: 100%;
-  padding: 40px;
+.footer-profile {
+  padding: 1rem 0 2rem;
+  min-width: 200px;
 }
 
-#home-new-books .carousel {
-  height: 400px;
-  width: 100%;
+.footer-profile a {
+  font-style: italic;
+  line-height: 2rem;
+  width: fit-content;
 }
 
-#home-new-books .carousel-book {
+.footer-profile a:hover {
+  text-decoration: underline;
+}
+
+.footer-profile p {
+  font-weight: bold;
+}
+
+.footer-profile-links {
   display: flex;
-  margin: auto;
-  gap: 40px;
-  max-width: 440px;
-}
-
-#home-new-books img {
-  max-width: 240px;
-  height: 280px;
-  border-radius: 8px;
-  box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.4);
-  margin: 1rem 0;
-}
-
-#home-new-books .carousel-book-text {
-  display: flex;
-  justify-content: center;
   flex-direction: column;
 }
+
+/* #home-footer > p:last-child {
+  text-align: right;
+} */
