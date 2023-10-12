@@ -11,18 +11,17 @@ import { UserPageComponent } from './page/user-page/user-page.component';
 import { AllBooksPageComponent } from './page/all-books-page/all-books-page.component';
 import { CategoryPageComponent } from './page/category-page/category-page.component';
 import { ConstructionPageComponent } from './page/construction-page/construction-page.component';
+import { WriterPageComponent } from './page/writer-page/writer-page.component';
+import { GalleryPageComponent } from './page/gallery-page/gallery-page.component';
+import { AboutPageComponent } from './page/about-page/about-page.component';
+import { ContactPageComponent } from './page/contact-page/contact-page.component';
 
 const routes: Routes = [
-  //Angular - common
+  //redirects
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'category', redirectTo: '/under-construction', pathMatch: 'full' },
-  { path: 'writer', redirectTo: '/under-construction', pathMatch: 'full' },
   { path: 'publisher', redirectTo: '/under-construction', pathMatch: 'full' },
-  { path: 'gallery', redirectTo: '/under-construction', pathMatch: 'full' },
-  { path: 'about', redirectTo: '/under-construction', pathMatch: 'full' },
-  { path: 'contact', redirectTo: '/under-construction', pathMatch: 'full' },
 
-  //Jonathan
+  //paths
   {
     path: 'home',
     component: HomeComponent,
@@ -43,8 +42,6 @@ const routes: Routes = [
     path: 'under-construction',
     component: ConstructionPageComponent,
   },
-
-  //Dmytro
   {
     path: 'admin-page',
     component: AdminPageComponent,
@@ -57,14 +54,10 @@ const routes: Routes = [
     path: 'delete-book-page',
     component: DeleteBookPageComponent,
   },
-
-  //Abderrahman
   {
     path: 'login',
     component: LoginComponent,
   },
-
-  //Huseyin
   {
     path: 'register',
     component: RegisterComponent,
@@ -72,6 +65,22 @@ const routes: Routes = [
   {
     path: 'user',
     component: UserPageComponent,
+  },
+  {
+    path: 'writer',
+    component: WriterPageComponent,
+  },
+  {
+    path: 'gallery',
+    component: GalleryPageComponent,
+  },
+  {
+    path: 'about',
+    component: AboutPageComponent,
+  },
+  {
+    path: 'contact',
+    component: ContactPageComponent,
   },
 ];
 
