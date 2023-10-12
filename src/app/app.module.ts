@@ -23,6 +23,11 @@ import { CategoryCardBigComponent } from './component/category-card-big/category
 import { CategoryCardSmallComponent } from './component/category-card-small/category-card-small.component';
 import { NgbModule, NgbCarousel, NgbSlide } from '@ng-bootstrap/ng-bootstrap';
 import { NgOptimizedImage } from '@angular/common';
+import { WriterpageComponent } from './writerpage/writerpage.component';
+import { WriterPageComponent } from './writer-page/writer-page.component';
+import { GalleryPageComponent } from './gallery-page/gallery-page.component';
+import { AboutPageComponent } from './about-page/about-page.component';
+import { ContactPageComponent } from './contact-page/contact-page.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +56,11 @@ import { NgOptimizedImage } from '@angular/common';
     UserPageComponent,
     RegisterComponent,
     CategoryCardSmallComponent,
+    WriterpageComponent,
+    WriterPageComponent,
+    GalleryPageComponent,
+    AboutPageComponent,
+    ContactPageComponent,
 
     //TO SORT
   ],
