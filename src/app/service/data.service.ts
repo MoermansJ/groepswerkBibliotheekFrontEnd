@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import Book from '../interface/Book';
 import User from '../interface/User';
 
@@ -8,11 +8,11 @@ import User from '../interface/User';
 })
 export class DataService {
   //properties
-  private searchResults = new Subject<any[]>();
-  private queryDescription = new Subject<string>();
-  private clickedBook = new Subject<Book>();
-  private currentUser = new Subject<User>();
-  private genres = new Subject<string[]>();
+  private searchResults = new BehaviorSubject<any[]>([]);
+  private queryDescription = new BehaviorSubject<string>('');
+  private clickedBook = new BehaviorSubject<Book>({} as Book);
+  private currentUser = new BehaviorSubject<User>({} as User);
+  private genres = new BehaviorSubject<string[]>([]);
 
   //constructor
   constructor() {}

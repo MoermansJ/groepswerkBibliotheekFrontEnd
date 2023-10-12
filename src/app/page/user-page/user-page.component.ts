@@ -43,7 +43,7 @@ export class UserPageComponent implements OnInit, OnDestroy {
   }
 
   public getBorrowedBooks(): void {
-    console.log('cu ' + this.currentUser.password);
+    console.log(this.currentUser.id);
     // this.borrowedBookService.getBorrowedBooks(
     //   this.currentUser.borrowedBookIdList
     // );

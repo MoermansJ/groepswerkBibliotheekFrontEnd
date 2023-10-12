@@ -24,11 +24,11 @@ import { CategoryCardSmallComponent } from './component/category-card-small/cate
 import { NgbModule, NgbCarousel, NgbSlide } from '@ng-bootstrap/ng-bootstrap';
 import { NgOptimizedImage } from '@angular/common';
 import { NewBooksCarouselComponent } from './component/new-books-carousel/new-books-carousel.component';
-import { WriterpageComponent } from './writerpage/writerpage.component';
-import { WriterPageComponent } from './writer-page/writer-page.component';
-import { GalleryPageComponent } from './gallery-page/gallery-page.component';
-import { AboutPageComponent } from './about-page/about-page.component';
-import { ContactPageComponent } from './contact-page/contact-page.component';
+import { WriterPageComponent } from './page/writer-page/writer-page.component';
+import { AboutPageComponent } from './page/about-page/about-page.component';
+import { ContactPageComponent } from './page/contact-page/contact-page.component';
+import { GalleryPageComponent } from './page/gallery-page/gallery-page.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -49,12 +49,11 @@ import { ContactPageComponent } from './contact-page/contact-page.component';
     UserPageComponent,
     RegisterComponent,
     CategoryCardSmallComponent,
-    WriterpageComponent,
     WriterPageComponent,
-    GalleryPageComponent,
     AboutPageComponent,
     ContactPageComponent,
-
+    GalleryPageComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
