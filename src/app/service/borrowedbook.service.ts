@@ -9,10 +9,10 @@ import Book from '../interface/Book';
 @Injectable({
   providedIn: 'root',
 })
-export class BorrowedBookService implements OnInit, OnDestroy {
+export class BorrowedBookService {
   //properties
   private dataServiceSubscription: Subscription = new Subscription();
-  // private currentUser: User = {} as User;
+  private currentUser: User = {} as User;
   public borrowedBooks: Book[] = [];
 
   //constructor
@@ -21,37 +21,30 @@ export class BorrowedBookService implements OnInit, OnDestroy {
     private dataService: DataService
   ) {}
 
-  //getters & setters
-
   //custom methods
-  ngOnInit() {
-    //subscribing to dataService
-    // this.dataServiceSubscription = this.dataService
-    //   .getCurrentUser()
-    //   .subscribe((value) => {
-    //     this.currentUser = value;
-    //   });
+  public borrowBook(book: Book): void {
+    //BOOK - updating clientside
+    book.available = !book.available;
+    this.dataService.setClickedBook(book);
+
+    //BOOK - updating serverside
+    const urlBook = 'http://localhost:8080/book/patchBook';
+    this.apiService.patch(urlBook, book).subscribe();
+
+    //BORROWEDBOOK - updating serverside
+    this.getUser();
+    const urlBb = 'http://localhost:8080/borrowedBook/addBorrowedBook';
+    const newBb = {
+      userId: this.currentUser.id,
+      bookId: book.id,
+    };
+
+    this.apiService.post(urlBb, newBb).subscribe();
   }
 
-  ngOnDestroy() {
-    this.dataServiceSubscription.unsubscribe(); // Unsubscribe to prevent memory leaks
-  }
-
-  public getBorrowedBooks(borrowedBookIdList: number[]): void {
-    const url = 'http://localhost:8080/book/getBooksByBorrowedBookId';
-
-    console.log('bbIdList' + borrowedBookIdList);
-
-    this.apiService
-      .post(url, { borrowedBookIds: borrowedBookIdList })
-      .subscribe({
-        next: (response: Book[]) => {
-          console.log('borrowedbooks GOTTEN');
-          this.borrowedBooks = response;
-        },
-        error: (error: any) => {
-          console.log(error);
-        },
-      });
+  private getUser(): void {
+    this.dataService.getCurrentUser().subscribe((value) => {
+      this.currentUser = value;
+    });
   }
 }

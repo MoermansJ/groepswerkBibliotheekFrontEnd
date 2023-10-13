@@ -3,7 +3,7 @@ export default interface Book {
   isbn: string;
   author: string;
   title: string;
-  isAvailable: boolean;
+  available: boolean;
   image: string;
   genre: string;
   description: string;

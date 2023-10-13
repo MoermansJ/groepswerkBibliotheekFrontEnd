@@ -31,6 +31,9 @@ export class LoginComponent {
         next: (response: User) => {
           this.successfullAttempt = true;
           this.dataService.setCurrentUser(response);
+          localStorage.setItem('token', response.token);
+          localStorage.setItem('role', response.admin ? 'admin' : 'user');
+          localStorage.setItem('email', response.email);
           console.log(response);
         },
         error: (error: any) => {
