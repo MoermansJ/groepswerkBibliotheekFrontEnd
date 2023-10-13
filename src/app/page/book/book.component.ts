@@ -5,6 +5,7 @@ import { DataService } from 'src/app/service/data.service';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/service/api.service';
 import { BookService } from 'src/app/service/book.service';
+import { BorrowedBookService } from 'src/app/service/borrowedbook.service';
 
 @Component({
   selector: 'app-book',
@@ -13,18 +14,14 @@ import { BookService } from 'src/app/service/book.service';
 })
 export class BookComponent {
   //properties
-  public bookImage: string = '';
-  public bookTitle: string = '';
-  public bookAuthor: string = '';
-  public bookDescription: string = '';
-  public bookGenre: string = '';
   private dataServiceSubscription: Subscription = new Subscription();
+  public book: Book = {} as Book;
 
   //constructor
   constructor(
     private bookService: BookService,
+    private borrowedBookService: BorrowedBookService,
     private dataService: DataService,
-    private apiService: ApiService,
     private router: Router
   ) {}
 
@@ -35,30 +32,21 @@ export class BookComponent {
     //subscribing to dataService
     this.dataServiceSubscription = this.dataService
       .getClickedBook()
-      .subscribe((value) => {
-        this.bookImage = value.image; // Update the component's property
-        this.bookTitle = value.title;
-        this.bookAuthor = value.author;
-        this.bookDescription = value.description;
-        this.bookGenre = value.genre;
+      .subscribe((value: Book) => {
+        this.book = value;
       });
-
-    //this is supposed to grant the component time to get the book values from dataService
-    //its purpose is to prevent idling on /book on an empty page
-    //perhaps replace the re-navigation to show an error message instead?
-    setTimeout(() => {
-      if (!this.bookTitle) {
-        this.router.navigate(['']);
-      }
-    }, 200);
   }
 
   ngOnDestroy(): void {
-    this.dataServiceSubscription.unsubscribe(); // Unsubscribe to prevent memory leaks
+    this.dataServiceSubscription.unsubscribe();
   }
 
   public handleGenreClick(): void {
-    this.bookService.findBooksByGenre(this.bookGenre);
+    this.bookService.findBooksByGenre(this.book.genre);
     this.router.navigate(['/all-books']);
+  }
+
+  public handleBorrowBook(): void {
+    this.borrowedBookService.borrowBook(this.book);
   }
 }

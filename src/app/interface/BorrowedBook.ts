@@ -2,7 +2,7 @@ import Book from './Book';
 import User from './User';
 
 export default interface BorrowedBook {
-  ID: number;
+  id: number;
   book: Book;
   user: User;
   startDate: string;

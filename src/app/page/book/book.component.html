@@ -1,11 +1,11 @@
 <div id="book">
-	<img [src]="bookImage" />
+	<img [src]="book.image" />
 	<div>
-		<div class="book-title">{{bookTitle}}</div>
-		<div class="book-author">{{bookAuthor}}</div>
-		<!-- TO DO: implement colour codes for genres -->
-		<button class="book-genre" (click)="handleGenreClick()">{{bookGenre}}</button>
-		<div class="book-description">{{bookDescription}}</div>
-		<button class="book-borrow">+ Borrow</button>
+		<div class="book-title">{{book.title}}</div>
+		<div class="book-author">{{book.author}}</div>
+		<div>Availability: {{book.available}}</div>
+		<button class="book-genre" (click)="handleGenreClick()">{{book.genre}}</button>
+		<div class="book-description">{{book.description}}</div>
+		<button class="book-borrow" (click)="handleBorrowBook()" *ngIf="book.available">+ Borrow</button>
 	</div>
 </div>

@@ -112,9 +112,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   public handleLogOut(): void {
     this.dataService.setCurrentUser({} as User);
-    setTimeout(() => {
-      this.router.navigate(['']);
-    }, 1);
+    localStorage.clear();
+    this.router.navigate(['']);
   }
 
   public handleClickAllBooks(): void {

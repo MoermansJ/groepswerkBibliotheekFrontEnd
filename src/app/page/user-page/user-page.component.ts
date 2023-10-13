@@ -5,6 +5,7 @@ import { BorrowedBookService } from 'src/app/service/borrowedbook.service';
 import User from 'src/app/interface/User';
 import { Subscription } from 'rxjs';
 import { DataService } from 'src/app/service/data.service';
+import { ApiService } from 'src/app/service/api.service';
 
 @Injectable({
   providedIn: 'root',
@@ -17,13 +18,13 @@ import { DataService } from 'src/app/service/data.service';
 export class UserPageComponent implements OnInit, OnDestroy {
   //properties
   private dataServiceSubscription: Subscription = new Subscription();
-  public borrowedBooks: BorrowedBook[] = [];
   public currentUser: User = {} as User;
 
   //constructor
   constructor(
     private dataService: DataService,
-    private borrowedBookService: BorrowedBookService
+    private borrowedBookService: BorrowedBookService,
+    private apiSerivce: ApiService
   ) {}
 
   //getters & setters
@@ -42,10 +43,17 @@ export class UserPageComponent implements OnInit, OnDestroy {
     this.dataServiceSubscription.unsubscribe(); // Unsubscribe to prevent memory leaks
   }
 
-  public getBorrowedBooks(): void {
-    console.log(this.currentUser.id);
-    // this.borrowedBookService.getBorrowedBooks(
-    //   this.currentUser.borrowedBookIdList
-    // );
-  }
+  // public getAllBorrowedBooks(): void {
+  //   const url = `http://localhost:8080/borrowedBook/getAllBorrowedBooks`;
+
+  //   this.apiSerivce.get(url).subscribe({
+  //     next: (response: any) => {
+  //       this.borrowedBooks = response;
+  //       console.log(response);
+  //     },
+  //     error: (error: any) => {
+  //       console.log(error);
+  //     },
+  //   });
+  // }
 }
