@@ -1,14 +1,12 @@
 <div id="user-page">
-	<p>dit is de user pagina</p>
-
-	<p>henlo</p>
-	<p>{{currentUser.email}}</p>
+	<b>Your profile, {{currentUser.email}}</b>
 
 	<div class="user-books">
 		<b>Your books</b>
 		<div *ngFor="let bb of currentUser.borrowedBookList">
 			<app-book-card [book]="bb.book" />
 			<p>Extended: {{bb.hasBeenExtended}}</p>
+			<button (click)="handleExtendBorrowedBook(bb)">EXTEND</button>
 			<p>Borrowed since: {{bb.startDate}}</p>
 		</div>
 	</div>

@@ -6,6 +6,7 @@ import User from 'src/app/interface/User';
 import { Subscription } from 'rxjs';
 import { DataService } from 'src/app/service/data.service';
 import { ApiService } from 'src/app/service/api.service';
+import { UserService } from 'src/app/service/user.service';
 
 @Injectable({
   providedIn: 'root',
@@ -24,13 +25,16 @@ export class UserPageComponent implements OnInit, OnDestroy {
   constructor(
     private dataService: DataService,
     private borrowedBookService: BorrowedBookService,
-    private apiSerivce: ApiService
+    private userService: UserService
   ) {}
 
   //getters & setters
 
   //custom methods
   ngOnInit() {
+    //refreshing user in dataservice
+    this.userService.refreshUser();
+
     //subscribing to dataService
     this.dataServiceSubscription = this.dataService
       .getCurrentUser()
@@ -41,6 +45,17 @@ export class UserPageComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.dataServiceSubscription.unsubscribe(); // Unsubscribe to prevent memory leaks
+  }
+
+  public handleExtendBorrowedBook(borrowedBook: BorrowedBook): void {
+    //updating client side
+    borrowedBook.user = {
+      id: this.currentUser.id,
+    } as User;
+    borrowedBook.hasBeenExtended = true;
+
+    //updating server side
+    this.borrowedBookService.patchBorrowedBook(borrowedBook);
   }
 
   // public getAllBorrowedBooks(): void {

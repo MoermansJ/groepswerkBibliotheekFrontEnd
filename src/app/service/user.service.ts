@@ -25,4 +25,8 @@ export class UserService {
       error: (error: any) => console.log(error),
     });
   }
+
+  public refreshUser(): void {
+    this.getLocalStorage();
+  }
 }
