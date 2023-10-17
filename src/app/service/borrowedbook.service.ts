@@ -26,7 +26,7 @@ export class BorrowedBookService {
   //custom methods
   public borrowBook(book: Book): void {
     //BOOK - updating clientside
-    book.available = !book.available;
+    book.available = false;
     this.dataService.setClickedBook(book);
 
     //BOOK - updating serverside
@@ -55,5 +55,10 @@ export class BorrowedBookService {
     this.dataService.getCurrentUser().subscribe((value) => {
       this.currentUser = value;
     });
+  }
+
+  public returnBorrowedBook(borrowedBook: BorrowedBook): void {
+    const url = `http://localhost:8080/borrowedBook/returnBorrowedBook`;
+    this.apiService.patch(url, borrowedBook).subscribe();
   }
 }

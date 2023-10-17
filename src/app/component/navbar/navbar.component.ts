@@ -19,13 +19,9 @@ import { filter } from 'rxjs/operators';
 export class NavbarComponent implements OnInit, OnDestroy {
   //properties
   public search: string = '';
-  // public genres: string[] = [];
   private previousSearch: string = '';
   public showNavbar: boolean = true;
   private hideNavbarPages: string[] = ['admin-page', 'add-book-page'];
-  // public showSearchbar: boolean = true;
-  // public showRegisterButton: boolean = true;
-  // public showLoginButton: boolean = true;
 
   //data service
   private dataServiceSubscription: Subscription = new Subscription();

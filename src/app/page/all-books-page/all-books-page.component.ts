@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import Book from 'src/app/interface/Book';
+import User from 'src/app/interface/User';
 import { BookService } from 'src/app/service/book.service';
 import { DataService } from 'src/app/service/data.service';
 
@@ -11,6 +12,7 @@ import { DataService } from 'src/app/service/data.service';
 })
 export class AllBooksPageComponent implements OnInit, OnDestroy {
   //properties
+  public currentUser: User = {} as User;
   public allBooks: Book[] = [];
   public filteredBooks: Book[] = [];
   public queryDescription: string = '';
@@ -28,6 +30,12 @@ export class AllBooksPageComponent implements OnInit, OnDestroy {
   //custom methods
   ngOnInit(): void {
     //subscribing to dataService
+    this.dataServiceSubscription = this.dataService
+      .getCurrentUser()
+      .subscribe((currentUser: User) => {
+        this.currentUser = currentUser;
+      });
+
     this.dataServiceSubscription = this.dataService
       .getSearchResults()
       .subscribe((allBooks) => {
@@ -47,10 +55,7 @@ export class AllBooksPageComponent implements OnInit, OnDestroy {
   }
 
   public handleCardClick(book: Book): void {
-    //waiting for routerLink to load book-page first, so it can listen to clickedBook change
-    setTimeout(() => {
-      this.dataService.setClickedBook(book);
-    }, 1);
+    this.dataService.setClickedBook(book);
   }
 
   public handleToggleShowOnlyAvailableBooks(): void {

@@ -7,6 +7,7 @@ import { Subscription } from 'rxjs';
 import { DataService } from 'src/app/service/data.service';
 import { ApiService } from 'src/app/service/api.service';
 import { UserService } from 'src/app/service/user.service';
+import { BookService } from 'src/app/service/book.service';
 
 @Injectable({
   providedIn: 'root',
@@ -25,7 +26,8 @@ export class UserPageComponent implements OnInit, OnDestroy {
   constructor(
     private dataService: DataService,
     private borrowedBookService: BorrowedBookService,
-    private userService: UserService
+    private userService: UserService,
+    private bookService: BookService
   ) {}
 
   //getters & setters
@@ -56,6 +58,20 @@ export class UserPageComponent implements OnInit, OnDestroy {
 
     //updating server side
     this.borrowedBookService.patchBorrowedBook(borrowedBook);
+  }
+
+  public handleReturnBorrowedBook(borrowedBook: BorrowedBook): void {
+    //updating client side
+    this.currentUser.borrowedBookList =
+      this.currentUser.borrowedBookList.filter(
+        (bb) => bb.book != borrowedBook.book
+      );
+    borrowedBook.book.available = true;
+
+    //updating server side
+    this.userService.patchUser(this.currentUser);
+    this.bookService.patchBook(borrowedBook.book);
+    this.borrowedBookService.returnBorrowedBook(borrowedBook);
   }
 
   // public getAllBorrowedBooks(): void {

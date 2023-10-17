@@ -15,6 +15,6 @@ export class AppComponent implements OnInit {
 
   //custom methods
   ngOnInit(): void {
-    this.userService.getLocalStorage();
+    this.userService.getUserFromLocalStorage();
   }
 }

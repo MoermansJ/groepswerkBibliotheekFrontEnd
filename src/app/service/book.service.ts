@@ -30,7 +30,7 @@ export class BookService {
     });
   }
 
-  public findBooksByGenre(genre: string): void {
+  public getBooksByGenre(genre: string): void {
     const url = `http://localhost:8080/book/getBooksByGenre?genre=${genre.toLowerCase()}`;
 
     this.apiService.get(url).subscribe({
@@ -71,5 +71,11 @@ export class BookService {
       },
       error: (error: any) => console.error(error),
     });
+  }
+
+  public patchBook(book: Book): void {
+    const url = `http://localhost:8080/book/patchBook`;
+
+    this.apiService.patch(url, book).subscribe();
   }
 }

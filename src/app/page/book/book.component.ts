@@ -42,7 +42,7 @@ export class BookComponent {
   }
 
   public handleGenreClick(): void {
-    this.bookService.findBooksByGenre(this.book.genre);
+    this.bookService.getBooksByGenre(this.book.genre);
     this.router.navigate(['/all-books']);
   }
 

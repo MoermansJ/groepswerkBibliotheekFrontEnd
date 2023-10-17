@@ -16,7 +16,7 @@ export class UserService {
   ) {}
 
   //custom methods
-  public getLocalStorage(): void {
+  public getUserFromLocalStorage(): void {
     const lsEmail = localStorage.getItem('email');
     const url = `http://localhost:8080/user/getUserByEmail?email=${lsEmail}`;
 
@@ -27,6 +27,13 @@ export class UserService {
   }
 
   public refreshUser(): void {
-    this.getLocalStorage();
+    this.getUserFromLocalStorage();
+  }
+
+  public patchUser(user: User): void {
+    const url = `http://localhost:8080/user/patchUser`;
+    this.apiService.patch(url, user).subscribe();
+
+    // this.refreshUser();
   }
 }
