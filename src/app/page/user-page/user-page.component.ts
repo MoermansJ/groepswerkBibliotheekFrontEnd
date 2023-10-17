@@ -30,8 +30,6 @@ export class UserPageComponent implements OnInit, OnDestroy {
     private bookService: BookService
   ) {}
 
-  //getters & setters
-
   //custom methods
   ngOnInit() {
     //refreshing user in dataservice
@@ -50,6 +48,8 @@ export class UserPageComponent implements OnInit, OnDestroy {
   }
 
   public handleExtendBorrowedBook(borrowedBook: BorrowedBook): void {
+    if (borrowedBook.hasBeenExtended) return;
+
     //updating client side
     borrowedBook.user = {
       id: this.currentUser.id,
@@ -57,6 +57,7 @@ export class UserPageComponent implements OnInit, OnDestroy {
     borrowedBook.hasBeenExtended = true;
 
     //updating server side
+    this.userService.patchUser(this.currentUser);
     this.borrowedBookService.patchBorrowedBook(borrowedBook);
   }
 

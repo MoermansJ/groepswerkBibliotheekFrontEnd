@@ -32,7 +32,12 @@ export class UserService {
 
   public patchUser(user: User): void {
     const url = `http://localhost:8080/user/patchUser`;
-    this.apiService.patch(url, user).subscribe();
+    this.apiService.patch(url, user).subscribe({
+      next: (response: any) => {
+        if (response.isPresent) this.dataService.setCurrentUser(response.value);
+        console.log('response = ', response);
+      },
+    });
 
     // this.refreshUser();
   }

@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { ApiService } from 'src/app/service/api.service';
 import { BookService } from 'src/app/service/book.service';
 import { BorrowedBookService } from 'src/app/service/borrowedbook.service';
+import User from 'src/app/interface/User';
 
 @Component({
   selector: 'app-book',
@@ -16,6 +17,7 @@ export class BookComponent {
   //properties
   private dataServiceSubscription: Subscription = new Subscription();
   public book: Book = {} as Book;
+  public currentUser: User = {} as User;
 
   //constructor
   constructor(
@@ -32,8 +34,14 @@ export class BookComponent {
     //subscribing to dataService
     this.dataServiceSubscription = this.dataService
       .getClickedBook()
-      .subscribe((value: Book) => {
-        this.book = value;
+      .subscribe((book: Book) => {
+        this.book = book;
+      });
+
+    this.dataServiceSubscription = this.dataService
+      .getCurrentUser()
+      .subscribe((currentUser: User) => {
+        this.currentUser = currentUser;
       });
   }
 
