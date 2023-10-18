@@ -35,7 +35,6 @@ export class UserService {
     this.apiService.patch(url, user).subscribe({
       next: (response: any) => {
         if (response.isPresent) this.dataService.setCurrentUser(response.value);
-        console.log('response = ', response);
       },
     });
 

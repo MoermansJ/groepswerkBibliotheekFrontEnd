@@ -8,12 +8,19 @@
 		</div>
 
 		<!-- user is logged in -->
-		<span *ngIf="currentUser.email">
-			<p>Welcome {{currentUser.email}}</p>
-			<button routerLink="/user">User-page</button>
-			<button *ngIf="currentUser.admin" routerLink="/admin-page">Admin-page</button>
-			<button (click)="handleLogOut()">Log out</button>
-		</span>
+		<div *ngIf="currentUser.email" id="user-dropdown">
+			<div ngbDropdown>
+				<button type="button" id="user-dropdown-main" ngbDropdownToggle>
+					Welcome, {{currentUser.email}}
+				</button>
+				<div ngbDropdownMenu aria-labelledby="user-dropdown" id="user-dropdown-menu">
+					<button ngbDropdownItem routerLink="/user">Your books</button>
+					<button ngbDropdownItem *ngIf="currentUser.admin" routerLink="/admin-page">Admin-page</button>
+					<button ngbDropdownItem (click)="handleLogOut()">Log out</button>
+				</div>
+			</div>
+		</div>
+
 
 		<!-- user is NOT logged in -->
 		<span *ngIf="!currentUser.email">
