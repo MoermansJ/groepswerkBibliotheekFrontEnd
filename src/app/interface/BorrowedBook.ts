@@ -6,5 +6,6 @@ export default interface BorrowedBook {
   book: Book;
   user: User;
   startDate: string;
+  endDate: string;
   hasBeenExtended: boolean;
 }

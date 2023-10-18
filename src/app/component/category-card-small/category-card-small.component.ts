@@ -19,7 +19,7 @@ export class CategoryCardSmallComponent {
   ngOnInit() {}
 
   public handleClick(): void {
-    this.bookService.findBooksByGenre(this.genre);
+    this.bookService.getBooksByGenre(this.genre);
   }
 
   public getImageUrl(genre: string): string {

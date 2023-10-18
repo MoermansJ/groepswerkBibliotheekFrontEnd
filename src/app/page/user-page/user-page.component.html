@@ -1,15 +1,17 @@
 <div id="user-page">
-	<p>dit is de user pagina</p>
-
-	<p>henlo</p>
-	<p>{{currentUser.email}}</p>
+	<b>Your profile, {{currentUser.email}}</b>
 
 	<div class="user-books">
 		<b>Your books</b>
 		<div *ngFor="let bb of currentUser.borrowedBookList">
-			<app-book-card [book]="bb.book" />
-			<p>Extended: {{bb.hasBeenExtended}}</p>
-			<p>Borrowed since: {{bb.startDate}}</p>
+			<div *ngIf="!bb.endDate">
+				<app-book-card [book]="bb.book" />
+				<p>Extended: {{bb.hasBeenExtended}}</p>
+				<p>Available: {{bb.book.available}}</p>
+				<button (click)="handleExtendBorrowedBook(bb)">EXTEND</button>
+				<button (click)="handleReturnBorrowedBook(bb)">RETURN</button>
+				<p>Borrowed since: {{bb.startDate}}</p>
+			</div>
 		</div>
 	</div>
 </div>

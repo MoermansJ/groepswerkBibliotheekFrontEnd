@@ -6,6 +6,9 @@
 		<div>Availability: {{book.available}}</div>
 		<button class="book-genre" (click)="handleGenreClick()">{{book.genre}}</button>
 		<div class="book-description">{{book.description}}</div>
-		<button class="book-borrow" (click)="handleBorrowBook()" *ngIf="book.available">+ Borrow</button>
+		<div *ngIf="currentUser.id">
+			<button class="book-borrow" (click)="handleBorrowBook()" *ngIf="book.available">+ Borrow</button>
+			<p *ngIf="!book.available">This book is currently not available</p>
+		</div>
 	</div>
 </div>
