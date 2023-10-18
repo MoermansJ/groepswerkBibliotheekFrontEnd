@@ -65,7 +65,7 @@ nav {
   padding: 6px 12px;
   font-weight: bold;
   border: 2px solid var(--primary);
-  border-radius: 50px;
+  border-radius: 12px;
 }
 
 #nav-layer-2 button:hover {
@@ -86,4 +86,25 @@ nav {
   left: 20px;
   top: 20px; */
   z-index: 999;
+}
+
+#user-dropdown {
+}
+
+#user-dropdown-main {
+  border-radius: 12px;
+  padding: 8px;
+  background: transparent;
+  width: 120px;
+  text-align: right;
+  border: none;
+}
+
+#user-dropdown-main:hover {
+  text-decoration: underline;
+}
+
+#user-dropdown-menu > button:hover {
+  background: var(--primary);
+  color: var(--primaryWhite);
 }
