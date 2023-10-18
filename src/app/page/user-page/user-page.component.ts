@@ -68,6 +68,9 @@ export class UserPageComponent implements OnInit, OnDestroy {
         (bb) => bb.book != borrowedBook.book
       );
     borrowedBook.book.available = true;
+    borrowedBook.user = {
+      id: this.currentUser.id,
+    } as User;
 
     //updating server side
     this.userService.patchUser(this.currentUser);
