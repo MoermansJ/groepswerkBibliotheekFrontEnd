@@ -1,4 +1,11 @@
 <div id="category">
-	<div class="title">Book genres</div>
-	<app-category-card-big *ngFor="let genre of genres" [genre]="genre"></app-category-card-big>
+	<div class="title">Categories</div>
+	<div class="subtitle">Books</div>
+	<app-category-card-big *ngFor="let genre of genres" [genre]="genre" (click)="handleGenreClick(genre)" class="category-genre" routerLink="/all-books" />
+
+	<div class="subtitle">Audiobooks</div>
+	<p>Not available yet!</p>
+
+	<div class="subtitle">Music</div>
+	<p>Not available yet!</p>
 </div>

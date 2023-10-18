@@ -2,6 +2,14 @@
   display: flex;
   flex-direction: column;
   padding-top: var(--navbarHeight);
+  align-items: center;
+}
+
+#all-books-filter {
+  display: flex;
+  justify-content: space-between;
+  width: 240px;
+  padding: 8px 12px;
 }
 
 #all-books > .title {
