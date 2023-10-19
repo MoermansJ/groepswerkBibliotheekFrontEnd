@@ -1,0 +1,16 @@
+#contact-page {
+  padding-top: var(--navbarHeight);
+  display: flex;
+  justify-content: center;
+  height: 600px;
+}
+
+#contact-page .subtitle {
+  padding: 2rem;
+  text-align: center;
+}
+
+#contact-page-content {
+  min-width: 200px;
+  max-width: 1000px;
+}
