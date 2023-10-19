@@ -1,1 +1,12 @@
-<p>writer-page works!</p>
+<div id="writer-page">
+	<div id="writer-page-content">
+
+		<div *ngFor="let initial of allWriters" class="writer-card">
+			<div class="writer-initial">{{initial[0].charAt(0)}}</div>
+			<div class="writer-names">
+				<div *ngFor="let name of initial" (click)="handleSearchByWriter(name)" class="writer-name">{{name}}</div>
+			</div>
+		</div>
+
+	</div>
+</div>

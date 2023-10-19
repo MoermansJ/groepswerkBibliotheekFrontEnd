@@ -108,3 +108,8 @@ nav {
   background: var(--primary);
   color: var(--primaryWhite);
 }
+
+.logo {
+  width: 50px;
+  cursor: pointer;
+}

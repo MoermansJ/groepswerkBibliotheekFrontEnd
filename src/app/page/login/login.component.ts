@@ -20,8 +20,6 @@ export class LoginComponent {
     private dataService: DataService
   ) {}
 
-  // getters & setters
-
   //custom methods
   public login(): void {
     const url = 'http://localhost:8080/user/loginUser';
@@ -31,10 +29,8 @@ export class LoginComponent {
         next: (response: User) => {
           this.successfullAttempt = true;
           this.dataService.setCurrentUser(response);
-          localStorage.setItem('token', response.token);
           localStorage.setItem('role', response.admin ? 'admin' : 'user');
           localStorage.setItem('email', response.email);
-          console.log(response);
         },
         error: (error: any) => {
           console.error('Login failed', error);

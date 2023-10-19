@@ -1,0 +1,33 @@
+#writer-page {
+  padding-top: var(--navbarHeight);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#writer-page-content {
+  width: 90%;
+}
+
+.writer-card {
+  padding: 1rem 0 0;
+}
+
+.writer-initial {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.writer-names {
+  display: flex;
+}
+
+.writer-name {
+  width: fit-content;
+  padding: 0 24px 0 0;
+}
+
+.writer-name:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}

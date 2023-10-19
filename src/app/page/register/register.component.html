@@ -1,14 +1,12 @@
-<app-navbar></app-navbar>
-
 <div id="register">
-	<label for="register-email">E-mail :</label>
-	<input id="register-email" type="text" [(ngModel)]="email" />
+	<div id="register-form">
+		<label for="register-email">E-mail:</label>
+		<input id="register-email" type="text" [(ngModel)]="email" />
 
-	<br />
-	<label for="register-password">Password: </label>
-	<input id="register-password" type="password" [(ngModel)]="password" />
-	<button (click)="handleRegister()">Register</button>
+		<label for="register-password">Password: </label>
+		<input id="register-password" type="password" [(ngModel)]="password" />
+		<button (click)="handleRegister()">Register</button>
+	</div>
 </div>
-
 
 <div>{{result}}</div>

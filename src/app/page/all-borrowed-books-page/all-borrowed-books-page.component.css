@@ -1,0 +1,30 @@
+#all-borrowed-books {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: url("/assets/pictures/trnava-university-BEEyeib-am8-unsplash.jpg"); /* Шлях до вашого зображення */
+  background-size: cover; /* Растягуємо зображення на всю площину фону */
+  background-repeat: no-repeat; /* Відключаємо повторення фону */
+  height: 100%;
+  color: var(--primaryWhite);
+}
+
+#all-borrowed-books-content {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 90%;
+  background-color: rgba(14, 11, 11, 0.8);
+  border-radius: 12px;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+#all-borrowed-books .subtitle {
+  text-align: center;
+}
+
+.bb-row {
+  display: flex;
+}

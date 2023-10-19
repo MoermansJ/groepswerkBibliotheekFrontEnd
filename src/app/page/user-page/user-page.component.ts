@@ -77,18 +77,4 @@ export class UserPageComponent implements OnInit, OnDestroy {
     this.bookService.patchBook(borrowedBook.book);
     this.borrowedBookService.returnBorrowedBook(borrowedBook);
   }
-
-  // public getAllBorrowedBooks(): void {
-  //   const url = `http://localhost:8080/borrowedBook/getAllBorrowedBooks`;
-
-  //   this.apiSerivce.get(url).subscribe({
-  //     next: (response: any) => {
-  //       this.borrowedBooks = response;
-  //       console.log(response);
-  //     },
-  //     error: (error: any) => {
-  //       console.log(error);
-  //     },
-  //   });
-  // }
 }

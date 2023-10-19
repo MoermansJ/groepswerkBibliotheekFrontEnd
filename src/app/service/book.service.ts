@@ -78,4 +78,13 @@ export class BookService {
 
     this.apiService.patch(url, book).subscribe();
   }
+
+  public getAllWriters(): void {
+    const url = `http://localhost:8080/book/getAllWriters`;
+
+    this.apiService.get(url).subscribe({
+      next: (response: any) => this.dataService.setWriters(response),
+      error: (error: any) => console.log(console.error()),
+    });
+  }
 }

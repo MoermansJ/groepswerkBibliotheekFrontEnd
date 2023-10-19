@@ -1,11 +1,10 @@
 <div id="all-books">
 	<div class="title">{{queryDescription}}</div>
-	<div *ngIf="currentUser.id">
+	<div *ngIf="currentUser.id" id="all-books-filter">
 		<input type="checkbox" id="checkbox-available" (click)="handleToggleShowOnlyAvailableBooks()" />
 		<label for="checkbox-available">Show only available books</label>
 	</div>
-	<div class="book-card-container">
-		<app-book-card *ngFor="let book of filteredBooks" [book]="book" (click)="handleCardClick(book)" routerLink="../book">
-		</app-book-card>
+	<div class=" book-card-container">
+		<app-book-card *ngFor="let book of filteredBooks" [book]="book" (click)="handleCardClick(book)" routerLink="../book" />
 	</div>
 </div>

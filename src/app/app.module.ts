@@ -28,7 +28,8 @@ import { WriterPageComponent } from './page/writer-page/writer-page.component';
 import { AboutPageComponent } from './page/about-page/about-page.component';
 import { ContactPageComponent } from './page/contact-page/contact-page.component';
 import { GalleryPageComponent } from './page/gallery-page/gallery-page.component';
-import { FooterComponent } from './footer/footer.component';
+import { AllBorrowedBooksPageComponent } from './page/all-borrowed-books-page/all-borrowed-books-page.component';
+import { FooterComponent } from './component/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { FooterComponent } from './footer/footer.component';
     AboutPageComponent,
     ContactPageComponent,
     GalleryPageComponent,
+    AllBorrowedBooksPageComponent,
     FooterComponent,
   ],
   imports: [

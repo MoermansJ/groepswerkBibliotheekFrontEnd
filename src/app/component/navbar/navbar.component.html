@@ -1,6 +1,6 @@
 <nav *ngIf="showNavbar">
 	<div id="nav-layer-1" class="nav-layer">
-		<button class="nav-button home-button" routerLink="/home" (click)="handleHomeClick()">LOGO/HOME</button>
+		<img class="logo" src="assets/img/Library-Logo/Library-logo.png" (click)="handleHomeClick()" routerLink="/home">
 
 		<div class="searchbar">
 			<input type="text" placeholder="Search books, authors..." [(ngModel)]="search" (keyup)="handleSearch($event)" />
@@ -35,7 +35,7 @@
 		<button class="nav-button" routerLink="/home" routerLinkActive="selected-page">Home</button>
 		<button class="nav-button" routerLink="/all-books" routerLinkActive="selected-page" (click)="handleClickAllBooks()">Books</button>
 		<button class="nav-button" routerLink="/category" routerLinkActive="selected-page">Category</button>
-		<button class="nav-button" routerLink="/writer" routerLinkActive="selected-page">Writer</button>
+		<button class="nav-button" routerLink="/writer" routerLinkActive="selected-page" (click)="handleClickAllBooks()">Writer</button>
 		<button class="nav-button" routerLink="/publisher" routerLinkActive="selected-page">Publisher</button>
 		<button class="nav-button" routerLink="/gallery" routerLinkActive="selected-page">Gallery</button>
 		<button class="nav-button" routerLink="/about" routerLinkActive="selected-page">About</button>

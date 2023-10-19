@@ -19,8 +19,6 @@ export class CategoryPageComponent implements OnInit, OnDestroy {
     private bookService: BookService
   ) {}
 
-  //getters & setters
-
   //custom methods
   ngOnInit(): void {
     this.bookService.getAllGenres();
@@ -35,5 +33,9 @@ export class CategoryPageComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.dataServiceSubscription.unsubscribe(); // Unsubscribe to prevent memory leaks
+  }
+
+  public handleGenreClick(genre: string): void {
+    this.bookService.getBooksByGenre(genre);
   }
 }

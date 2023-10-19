@@ -1,6 +1,32 @@
-#login{
-  padding-top: 200px;
+#login {
+  display: flex;
+  justify-content: center;
+  padding-top: var(--navbarHeight);
+  height: 700px;
 }
 
+#login-form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 200px;
+  padding-top: 120px;
+}
 
+#login-form input {
+  margin: 12px;
+  border-radius: 12px;
+}
 
+#login-form label {
+  font-weight: bold;
+}
+
+#login-form button {
+  border-radius: 12px;
+  background: var(--primary);
+  border: 2px solid var(--primaryDark);
+  padding: 4px 8px;
+  margin-top: 12px;
+  color: var(--primaryWhite);
+}

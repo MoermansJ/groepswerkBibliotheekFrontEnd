@@ -13,6 +13,7 @@ export class DataService {
   private clickedBook = new BehaviorSubject<Book>({} as Book);
   private currentUser = new BehaviorSubject<User>({} as User);
   private genres = new BehaviorSubject<string[]>([]);
+  private writers = new BehaviorSubject<string[]>([]);
 
   //constructor
   constructor() {}
@@ -56,6 +57,14 @@ export class DataService {
 
   getGenres(): Observable<string[]> {
     return this.genres.asObservable();
+  }
+
+  setWriters(writers: string[]): void {
+    this.writers.next(writers);
+  }
+
+  getWriters(): Observable<string[]> {
+    return this.writers.asObservable();
   }
 
   //custom methods
