@@ -20,8 +20,6 @@ export class LoginComponent {
     private dataService: DataService
   ) {}
 
-  // getters & setters
-
   //custom methods
   public login(): void {
     const url = 'http://localhost:8080/user/loginUser';

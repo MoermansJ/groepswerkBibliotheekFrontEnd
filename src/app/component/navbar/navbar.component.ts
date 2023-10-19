@@ -21,7 +21,11 @@ export class NavbarComponent implements OnInit, OnDestroy {
   public search: string = '';
   private previousSearch: string = '';
   public showNavbar: boolean = true;
-  private hideNavbarPages: string[] = ['admin-page', 'add-book-page'];
+  private hideNavbarPages: string[] = [
+    'admin-page',
+    'add-book-page',
+    'delete-book-page',
+  ];
 
   //data service
   private dataServiceSubscription: Subscription = new Subscription();
