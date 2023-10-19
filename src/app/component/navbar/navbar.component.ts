@@ -25,6 +25,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     'admin-page',
     'add-book-page',
     'delete-book-page',
+    'all-borrowed-books-page',
   ];
 
   //data service

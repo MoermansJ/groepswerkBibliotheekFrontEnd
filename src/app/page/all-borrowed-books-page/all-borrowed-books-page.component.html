@@ -1,0 +1,28 @@
+<div id="all-borrowed-books">
+	<div id="all-borrowed-books-content">
+		<div class="subtitle">All borrowed books</div>
+		<table>
+			<thead>
+				<tr>
+					<th>id</th>
+					<th>book</th>
+					<th>user</th>
+					<th>start date</th>
+					<th>end date</th>
+					<th>extended</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let bb of allBorrowedBooks">
+					<td>{{bb.id}}</td>
+					<td>{{bb.book}}
+					</td>
+					<td>{{bb.user}}</td>
+					<td>{{bb.startDate}}</td>
+					<td>{{bb.endDate}}</td>
+					<td>{{bb.hasBeenExtended}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

@@ -16,6 +16,7 @@ export class FooterComponent implements OnInit, OnDestroy {
     'admin-page',
     'add-book-page',
     'delete-book-page',
+    'all-borrowed-books-page',
   ];
 
   //constructor

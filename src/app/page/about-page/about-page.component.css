@@ -1,0 +1,16 @@
+#about {
+  padding-top: var(--navbarHeight);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#about-content {
+  min-width: 200px;
+  max-width: 1000px;
+}
+
+#about .subtitle {
+  text-align: center;
+  padding: 2rem;
+}
