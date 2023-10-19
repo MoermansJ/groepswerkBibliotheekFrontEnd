@@ -16,8 +16,6 @@ export class CategoryCardSmallComponent {
   //getters & setters
 
   //custom methods
-  ngOnInit() {}
-
   public handleClick(): void {
     this.bookService.getBooksByGenre(this.genre);
   }

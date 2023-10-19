@@ -105,7 +105,7 @@ nav {
 }
 
 #user-dropdown-menu > button:hover {
-  background: var(--accent1);
+  background: var(--primary);
   color: var(--primaryWhite);
 }
 
