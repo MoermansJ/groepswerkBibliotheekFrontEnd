@@ -3,14 +3,53 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  min-height: 100%;
 }
 
 #about-content {
-  min-width: 200px;
-  max-width: 1000px;
+  display: flex;
+  gap: 24px;
+  width: 90%;
 }
 
 #about .subtitle {
   text-align: center;
   padding: 2rem;
+}
+
+.about-image-wrapper {
+  display: flex;
+  align-items: flex-end;
+}
+
+.about-container {
+  padding-top: 200px;
+  display: flex; /* Use flexbox */
+  align-items: center; /* Vertically center content */
+  justify-content: center; /* Horizontally center content */
+  text-align: center;
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+}
+
+.about-image {
+  width: 300px;
+  height: 500px;
+  object-fit: contain;
+  margin-right: 10px; /* Add margin to separate image from text */
+}
+
+h2 {
+  font-size: 24px;
+  color: black;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.4;
+  margin: 20px 0;
+  color: #333;
 }

@@ -3,6 +3,7 @@
   flex-direction: column;
   padding-top: var(--navbarHeight);
   text-align: center;
+  min-height: 100%;
 }
 
 #category .title {

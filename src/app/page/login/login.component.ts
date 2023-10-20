@@ -2,6 +2,7 @@ import { ApiService } from '../../service/api.service';
 import User from '../../interface/User';
 import { Component } from '@angular/core';
 import { DataService } from 'src/app/service/data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,8 @@ export class LoginComponent {
   //constructor
   constructor(
     private apiService: ApiService,
-    private dataService: DataService
+    private dataService: DataService,
+    private router: Router
   ) {}
 
   //custom methods
@@ -31,6 +33,8 @@ export class LoginComponent {
           this.dataService.setCurrentUser(response);
           localStorage.setItem('role', response.admin ? 'admin' : 'user');
           localStorage.setItem('email', response.email);
+
+          setTimeout(() => this.router.navigate(['/home']), 3000);
         },
         error: (error: any) => {
           console.error('Login failed', error);

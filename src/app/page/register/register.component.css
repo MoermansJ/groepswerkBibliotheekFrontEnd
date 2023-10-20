@@ -1,32 +1,77 @@
 #register {
-  display: flex;
-  justify-content: center;
   padding-top: var(--navbarHeight);
-  height: 700px;
-}
-
-#register-form {
   display: flex;
   align-items: center;
   flex-direction: column;
-  height: 200px;
-  padding-top: 120px;
+  min-height: 100%;
+  width: 100%;
+  text-align: center;
+  gap: 2rem;
 }
 
-#register-form input {
-  margin: 12px;
-  border-radius: 12px;
+#register-content {
+  width: 350px;
+  max-height: 400px;
+  background: transparent;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  border-radius: 4px;
+  margin-top: 6rem;
 }
 
-#register-form label {
+.form h2 {
+  color: #777;
+  margin: 0 0 40px;
+  padding: 0;
+  text-align: center;
+}
+
+.form .input-box {
+  position: relative;
+  margin: 20px 0;
+}
+
+.form input,
+.form button {
+  width: 100%;
+  font-size: 16px;
+  border: none;
+  border-bottom: 2px solid #777;
+  outline: none;
+  padding: 10px;
+  padding-left: 30px;
   font-weight: bold;
+  color: #777;
 }
 
-#register-form button {
-  border-radius: 12px;
-  background: var(--primary);
-  border: 2px solid var(--primaryDark);
-  padding: 4px 8px;
-  margin-top: 12px;
+.form .input-box input:focus,
+.form .input-box input:valid {
+  border-bottom-color: var(--primary);
+}
+
+.form button {
+  border: none;
+  cursor: pointer;
+  background-color: #03a9f4;
   color: var(--primaryWhite);
+  font-weight: bold;
+  transition: 0.3s ease;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.form button:hover {
+  background-color: #ff4987;
+}
+
+.form a {
+  text-decoration: none;
+  color: #777;
+  margin-top: 20px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.form a:hover {
+  color: #ff4987;
 }

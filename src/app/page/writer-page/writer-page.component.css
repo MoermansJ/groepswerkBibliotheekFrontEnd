@@ -1,16 +1,7 @@
 #writer-page {
   padding-top: var(--navbarHeight);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#writer-page-content {
-  width: 90%;
-}
-
-.writer-card {
-  padding: 1rem 0 0;
+  text-align: center;
+  min-height: 100%;
 }
 
 .writer-initial {
@@ -18,16 +9,26 @@
   font-weight: bold;
 }
 
+#writer-page .subtitle {
+  padding: 2rem;
+}
+
+.writer-card {
+  padding-bottom: 2rem;
+}
+
 .writer-names {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .writer-name {
   width: fit-content;
-  padding: 0 24px 0 0;
+  cursor: pointer;
 }
 
 .writer-name:hover {
-  cursor: pointer;
   text-decoration: underline;
 }

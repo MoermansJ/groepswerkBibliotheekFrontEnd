@@ -1,17 +1,46 @@
 <div id="user-page">
-	<b>Your profile, {{currentUser.email}}</b>
+	<b class="subtitle">Welcome {{currentUser.email}}</b>
+	<div class="card-container">
+		<div class="card" id="card5">
+			<div class="card-content">
+				<h2>View your borrowed books</h2>
+				<img src="assets/user-page/borrowedbooks.png" class="borrowed-books">
+				<button (click)="toggleViewAll()" selectedAction="View All">View All</button>
+			</div>
+		</div>
+		<div class="card" id="card2">
+			<div class="card-content">
+				<h2>Return a borrowed book</h2>
 
-	<div class="user-books">
-		<b>Your books</b>
-		<div *ngFor="let bb of currentUser.borrowedBookList">
-			<div *ngIf="!bb.endDate">
-				<app-book-card [book]="bb.book" />
-				<p>Extended: {{bb.hasBeenExtended}}</p>
-				<p>Available: {{bb.book.available}}</p>
-				<button (click)="handleExtendBorrowedBook(bb)">EXTEND</button>
-				<button (click)="handleReturnBorrowedBook(bb)">RETURN</button>
-				<p>Borrowed since: {{bb.startDate}}</p>
+				<img src="assets/user-page/returnabook.png">
+				<button (click)="setSelectedAction($event)" selectedAction="Return">Return a Book </button>
+			</div>
+		</div>
+		<div class="card" id="card4">
+			<div class="card-content">
+				<h2>Extend loan term</h2>
+				<img src="assets/user-page/extendloanterm.png" class="extend-loan">
+				<button (click)="setSelectedAction($event)" selectedAction="Extend">Extend</button>
+			</div>
+		</div>
+		<div class="card" id="card3">
+			<div class="card-content">
+				<h2>Borrow a book</h2>
+				<img ngSrc="assets/user-page/availablebooks.png" class="available-books" height="1080" width="1080">
+				<button (click)="handleBorrowedNewBook()" selectedAction="Borrow">Borrow</button>
 			</div>
 		</div>
 	</div>
-</div>
+
+	<div class="borrowedbook-container" *ngIf="viewAll">
+		<div *ngFor="let bb of currentUser.borrowedBookList">
+			<div *ngIf="!bb.endDate">
+				<app-book-card [book]="bb.book" />
+				<p *ngIf="selectedAction === 'Extend'">{{bb.hasBeenExtended ? "This book has already been extended" : ""}}</p>
+				<p *ngIf="selectedAction === 'Return'">Borrowed since: {{bb.startDate}}</p>
+
+				<button *ngIf="selectedAction === 'Extend'" (click)="handleExtendBorrowedBook(bb)">Extend</button>
+				<button *ngIf="selectedAction === 'Return'" (click)="handleReturnBorrowedBook(bb)">Return</button>
+			</div>
+		</div>
+	</div>
