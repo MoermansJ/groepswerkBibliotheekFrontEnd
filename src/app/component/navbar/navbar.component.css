@@ -8,9 +8,6 @@ nav {
   z-index: 1000;
 }
 
-.nav-logo {
-}
-
 .searchbar {
   display: flex;
   max-width: 600px;
@@ -34,6 +31,10 @@ nav {
   border-bottom-right-radius: 12px;
   cursor: pointer;
   text-decoration: none;
+}
+
+#nav-layer-1 {
+  justify-content: space-around !important;
 }
 
 .nav-layer {
@@ -82,13 +83,7 @@ nav {
   border: 2px solid var(--primaryWhite) !important;
 }
 .home-button {
-  /* position: fixed;
-  left: 20px;
-  top: 20px; */
   z-index: 999;
-}
-
-#user-dropdown {
 }
 
 #user-dropdown-main {

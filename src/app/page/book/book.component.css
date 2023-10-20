@@ -2,8 +2,9 @@
   display: flex;
   justify-content: center;
   padding: 48px;
-  padding-top: calc(2 * var(--navbarHeight));
+  padding-top: calc(1.5 * var(--navbarHeight));
   gap: 48px;
+  min-height: 100%;
 }
 
 #book > div {
@@ -12,10 +13,10 @@
   width: 40%;
 }
 
-#book img {
-  object-fit: contain;
-  max-height: 50vh;
-  width: 60%;
+#book > img {
+  height: 50vh;
+  border-radius: 12px;
+  box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.4);
 }
 
 #book .book-title {
@@ -33,9 +34,10 @@
   border-radius: 50px;
   padding: 6px 12px;
   font-weight: bold;
-  background: var(--accent1);
+  background: var(--primaryDark);
   color: var(--primaryWhite);
   width: fit-content;
+  margin: 1rem 0;
 }
 
 #book .book-borrow {
@@ -46,4 +48,9 @@
   font-weight: bold;
   background: var(--primary);
   color: var(--primaryWhite);
+  margin: 1rem 0;
+}
+
+#book .book-availability {
+  margin: 1rem 0;
 }

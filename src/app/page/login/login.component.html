@@ -1,15 +1,21 @@
-<div id="login">
-	<div id="login-form">
-		<label for="input-email">E-mail: </label>
-		<input type="text" id="input-email" [(ngModel)]="inputEmail" />
-
-		<label for="input-password">Password: </label>
-		<input type="password" id="input-password" [(ngModel)]="inputPassword" />
-
-		<button (click)="login()">Log In</button>
-
-		<div *ngIf="successfullAttempt">
-			<p>welcome {{inputEmail}}, <br /> You are now logged in </p>
+<div id="login" class="form">
+	<div id="login-content">
+		<h2 class="subtitle">Sign In</h2>
+		<div class="input-box">
+			<input type="email" name="email" placeholder="Username" [(ngModel)]="inputEmail" required>
 		</div>
+		<div class="input-box">
+			<i class="fa fa-unlock-alt" aria-hidden="true"></i>
+			<input type="password" name="password" placeholder="Password" [(ngModel)]="inputPassword" required>
+		</div>
+		<div class="input-box">
+			<button type="submit" name="sign-in" (click)="login()">Sign in</button>
+		</div>
+		<a href="#">Forgot Password</a>
+	</div>
+
+	<div *ngIf="successfullAttempt">
+		<p>Successfully logged in {{inputEmail}}</p>
+		<p>You will be redirected to the home page automatically in 3 seconds</p>
 	</div>
 </div>

@@ -1,12 +1,19 @@
-<div id="register">
-	<div id="register-form">
-		<label for="register-email">E-mail:</label>
-		<input id="register-email" type="text" [(ngModel)]="email" />
+<div id="register" class="form">
+	<div id="register-content">
+		<h2 class="subtitle">Register</h2>
+		<div class="input-box">
+			<input type="email" name="email" placeholder="Username" [(ngModel)]="email" required>
+		</div>
+		<div class="input-box">
+			<i class="fa fa-unlock-alt" aria-hidden="true"></i>
+			<input type="password" name="password" placeholder="Password" [(ngModel)]="password" required>
+		</div>
+		<div class="input-box">
+			<button type="submit" name="sign-in" (click)="handleRegister()">Register</button>
+		</div>
+	</div>
 
-		<label for="register-password">Password: </label>
-		<input id="register-password" type="password" [(ngModel)]="password" />
-		<button (click)="handleRegister()">Register</button>
+	<div>
+		<p>{{result}}</p>
 	</div>
 </div>
-
-<div>{{result}}</div>

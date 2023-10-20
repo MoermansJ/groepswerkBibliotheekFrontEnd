@@ -8,6 +8,7 @@ import { DataService } from 'src/app/service/data.service';
 import { ApiService } from 'src/app/service/api.service';
 import { UserService } from 'src/app/service/user.service';
 import { BookService } from 'src/app/service/book.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -21,13 +22,16 @@ export class UserPageComponent implements OnInit, OnDestroy {
   //properties
   private dataServiceSubscription: Subscription = new Subscription();
   public currentUser: User = {} as User;
+  public selectedAction: string = '';
+  public viewAll: boolean = false;
 
   //constructor
   constructor(
     private dataService: DataService,
     private borrowedBookService: BorrowedBookService,
     private userService: UserService,
-    private bookService: BookService
+    private bookService: BookService,
+    private router: Router
   ) {}
 
   //custom methods
@@ -76,5 +80,20 @@ export class UserPageComponent implements OnInit, OnDestroy {
     this.userService.patchUser(this.currentUser);
     this.bookService.patchBook(borrowedBook.book);
     this.borrowedBookService.returnBorrowedBook(borrowedBook);
+  }
+
+  public setSelectedAction(event: any): void {
+    const button = event.target as HTMLButtonElement;
+    const selectedAction = button.getAttribute('selectedAction') as string;
+    this.selectedAction = selectedAction;
+  }
+
+  public toggleViewAll(): void {
+    this.viewAll = !this.viewAll;
+  }
+
+  public handleBorrowedNewBook(): void {
+    this.bookService.getAllBooks();
+    this.router.navigate(['/all-books']);
   }
 }

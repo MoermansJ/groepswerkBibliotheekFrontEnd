@@ -12,6 +12,7 @@ export class RegisterComponent {
   public email: string = '';
   public password: string = '';
   public result: string = '';
+  public successfullAttempt: boolean = false;
 
   //constructor
   constructor(private apiService: ApiService) {}

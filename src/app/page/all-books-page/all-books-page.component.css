@@ -3,6 +3,7 @@
   flex-direction: column;
   padding-top: var(--navbarHeight);
   align-items: center;
+  min-height: 100%;
 }
 
 #all-books-filter {

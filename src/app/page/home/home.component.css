@@ -5,15 +5,14 @@
   flex-direction: column;
   padding-top: calc(2rem + var(--navbarHeight));
   margin: auto;
+  min-height: 100%;
 }
 
-/* home-new-books */
 #home-new-books {
   min-height: 380px;
   width: 90%;
 }
 
-/* home-category */
 #home-category {
   text-align: center;
   width: 100%;
