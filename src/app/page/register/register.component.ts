@@ -31,7 +31,8 @@ export class RegisterComponent {
     this.apiService
       .post(url, { email: this.email, password: this.password })
       .subscribe({
-        next: (response: any) => (this.result = 'Registration OK'),
+        next: (response: any) =>
+          (this.result = 'Successfully registered, you can now log in.'),
         error: (error: any) => (this.result = 'Registration FAILED'),
       });
   }

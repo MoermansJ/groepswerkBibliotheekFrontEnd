@@ -36,7 +36,7 @@
 		<div *ngFor="let bb of currentUser.borrowedBookList">
 			<div *ngIf="!bb.endDate">
 				<app-book-card [book]="bb.book" />
-				<p *ngIf="selectedAction === 'Extend'">{{bb.hasBeenExtended ? "This book has already been extended" : ""}}</p>
+				<p *ngIf="selectedAction === 'Extend'">{{bb.hasBeenExtended ? "This book has been extended" : ""}}</p>
 				<p *ngIf="selectedAction === 'Return'">Borrowed since: {{bb.startDate}}</p>
 
 				<button *ngIf="selectedAction === 'Extend'" (click)="handleExtendBorrowedBook(bb)">Extend</button>
